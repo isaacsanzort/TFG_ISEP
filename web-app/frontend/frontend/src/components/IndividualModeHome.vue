@@ -5,10 +5,11 @@
   >
     <div class="mb-4 d-flex justify-content-center">
       <div class="col-6">
-        <select class="form-select" aria-label="Select CCAA">
+        {{selectedRegion}}
+        <select class="form-select" aria-label="Select CCAA" v-model="selectedRegion">
           <option
             v-for="region in autonomousCommunities"
-            :value="region.id"
+            :value="region.name"
             :key="region.id"
           >
             {{ region.name }}
@@ -28,8 +29,8 @@
             class="btn-check"
             name="btnradio"
             :id="'btnradio' + data.id"
-            autocomplete="off"
-            :checked="data.checked"
+            :value="data.msg"
+            v-model="picked"
           />
           <label :class="labelClassCheckbox" :for="'btnradio' + data.id"
             >{{ data.msg }} Data</label
@@ -37,10 +38,9 @@
         </div>
       </div>
     </div>
+    {{picked}}
     <div class="d-flex justify-content-center">
-      <button type="button" class="btn btn-outline-success">
-        Individual Mode
-      </button>
+      <router-link :to="getUrl" class="btn btn-outline-success">Individual Mode</router-link>
     </div>
   </div>
 </template>
@@ -49,12 +49,14 @@
 export default {
   data() {
     return {
+      selectedRegion: 'España',
+      picked: 'Health', //COn esto además se seleccionan por defecto. Lo cual me resuelve el problema de checked
       divClassCheckbox: "d-flex justify-content-center mb-2",
       labelClassCheckbox: "btn btn-outline-primary col-6",
       dataCheckbox: [
-        { id: 0, msg: "Health", checked: true },
-        { id: 1, msg: "Economic", checked: false },
-        { id: 2, msg: "Sociodemographic", checked: false },
+        { id: 0, msg: "Health"},
+        { id: 1, msg: "Economic"},
+        { id: 2, msg: "Sociodemographic"},
       ],
       autonomousCommunities: [
         { id: 0, name: "España" },
@@ -80,5 +82,10 @@ export default {
       ],
     };
   },
+  computed: {
+    getUrl() {
+      return  "/individual/" + this.picked + "/" + this.selectedRegion;
+    }
+  }
 };
 </script>

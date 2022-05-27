@@ -1,18 +1,15 @@
 <template>
   <header-web />
-  <covid-graph></covid-graph>
   <router-view />
 </template>
 
 <script>
 import HeaderWeb from "./components/HeaderWeb.vue";
-import CovidGraph from "./components/CovidGraph.vue";
 
 export default {
   name: "app", // No hace poner falta esta cosa
   components: {
     HeaderWeb,
-    CovidGraph,
   },
 };
 </script>
