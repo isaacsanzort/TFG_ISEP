@@ -12,3 +12,5 @@ def ine_api(cod, start_date, end_date):
     json_response = generate_json_response(url)
     useful_data_dict = generate_useful_data(json_response)
     return json.dumps(useful_data_dict)
+
+

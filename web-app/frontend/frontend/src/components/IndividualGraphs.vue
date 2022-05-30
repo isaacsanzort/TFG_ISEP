@@ -4,9 +4,9 @@
     <prueba-individual 
         v-for="i in data_region"   
         :key="i"
-        :url="'http://127.0.0.1:5000/ine/' + i + '/20190808/20220508'"
+        :url="getUrl(i)"
         :id="i"
-    />
+    /> 
   </div>
 </template>
 
@@ -23,5 +23,13 @@ export default {
   components: {
     PruebaIndividual,
   },
+  methods: {
+    getUrl(code) {
+      let startDate = this.$route.params.startDate;
+      let endDate = this.$route.params.endDate;
+
+      return 'http://127.0.0.1:5000/ine/' + code + '/' + startDate + '/' + endDate;
+    }
+  }
 };
 </script>

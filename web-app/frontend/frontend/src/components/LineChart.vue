@@ -23,12 +23,7 @@ export default {
       type: "line",
       data: {
         labels: this.labelsChart,
-        datasets: [
-          {
-            label: "Prueba",
-            data: this.dataChart,
-          },
-        ],
+        datasets: this.dataChart,
       },
 
       options: {

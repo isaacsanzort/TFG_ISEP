@@ -3,7 +3,7 @@
       <line-chart
         :idChart="this.id"
         :dataChart="chartData"
-        :labelsChart="chartLabels"
+        :labelsChart="null"
         v-if="loaded"
       />
       <div v-else class="spinner-border" role="status">
@@ -26,7 +26,7 @@ export default {
   },
   data() {
     return {
-      chartData: {},
+      chartData: [],
       chartLabels: {},
       loaded: false,
     };
@@ -40,11 +40,11 @@ export default {
           this.url
       );
       const gObject = await getResponse.json();
-      //Asignamos el valor (ejeY)
-      this.chartData = gObject.Value;
-      //Aigmanos fechas (ejeX)
-      this.chartLabels = gObject.Date;
-
+      //Asignamos el valor (ejeY y ejeX)
+      this.chartData = [{
+        'label' : "Prueba COVID",
+        'data' : gObject.Value
+      }];
       //renderizamos el componente
       this.loaded = true;
     } catch (e) {

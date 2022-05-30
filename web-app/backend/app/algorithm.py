@@ -13,21 +13,20 @@ def generate_json_response(url):
     req = requests.get(url)
     return req.json()
 
+
 def generate_useful_data(json_response):
-    dates = []
-    values =  []
+    values = []
     for i in json_response["Data"]:
         #Transform date to YYYYMMDD format
         date = int(i["Fecha"])
         #Divide by 1000 so the UNIX time can be used
         date = datetime.utcfromtimestamp(date / 1000).strftime('%Y-%m-%d')
-        
-        # Adding data
-        dates.append(date)
-        values.append(i["Valor"])
 
+        values.append({'x': date, 'y':i["Valor"]})
+
+# Return data in the format {x:date, y:value}
     return {
-        'Date' : dates,
         'Value' : values
     }
-    
+
+
