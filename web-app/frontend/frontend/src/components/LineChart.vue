@@ -4,6 +4,10 @@
 
 <script>
 import Chart from "chart.js/auto";
+import zoomPlugin from "chartjs-plugin-zoom";
+import { shallowRef } from "vue";
+
+Chart.register(zoomPlugin);
 
 export default {
   props: {
@@ -17,30 +21,45 @@ export default {
       type: Array,
     },
   },
+  emits: ["chart"],
   mounted() {
     const ctx = document.getElementById(this.idChart).getContext("2d");
-    const myChart = new Chart(ctx, {
-      type: "line",
-      data: {
-        labels: this.labelsChart,
-        datasets: this.dataChart,
-      },
+    const myChart = shallowRef(
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: this.labelsChart,
+          datasets: this.dataChart,
+        },
 
-      options: {
-        scales: {
-          y: {
-            beginAtZero: false,
+        options: {
+          scales: {
+            y: {
+              beginAtZero: false,
+            },
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: "Custom Chart COVID",
+            },
+            zoom: {
+              pan: { // Allows dragging with the mouse to move in zoom
+                enabled: true,
+                mode: 'xy'
+              },
+              zoom: { // zoom with wheel
+                wheel: {
+                  enabled:true,
+                },
+                mode: 'xy', 
+              }
+            },
           },
         },
-        plugins: {
-          title: {
-              display: true,
-              text: 'Custom Chart COVID',
-          }
-        }
-      },
-    });
-    myChart; //Esto se pone para cargarlo se supone, pero si lo quito sigue funcionando. Creo que es para que no salgan errores del eslint
+      })
+    );
+    this.$emit("chart", myChart); //Esto se pone para cargarlo se supone, pero si lo quito sigue funcionando. Creo que es para que no salgan errores del eslint
   },
 };
 </script>

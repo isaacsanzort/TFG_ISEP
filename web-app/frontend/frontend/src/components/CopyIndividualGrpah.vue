@@ -25,7 +25,6 @@
         :dataChart="chartData"
         :labelsChart="chartLabels"
         v-if="loaded"
-
       />
       <!-- Si no pongo las comillas simples, entonces me lo trata como una funcion-->
     </div>
@@ -43,7 +42,7 @@ export default {
       chartLabels: {},
       loaded: false,
       data_type: this.$route.params.type, // url/individual/:type/:id  coge el type
-      data_region: prueba[this.$route.params.id][this.$route.params.type].cod
+      data_region: prueba[this.$route.params.id][this.$route.params.type].cod,
     };
   },
   async mounted() {
