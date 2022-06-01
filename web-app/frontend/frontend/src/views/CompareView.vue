@@ -118,7 +118,6 @@ export default {
           "/" +
           this.endDate;
         let data = await this.getData(url);
-        console.log(data);
         let obj_add = {
           label: "Prueba #1",
           data: data,
@@ -128,7 +127,6 @@ export default {
       }
     }
     this.chart.data.datasets = allData;
-    console.log(this.chart);
     this.chart.update();
   },
 };

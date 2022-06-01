@@ -35,7 +35,6 @@ export default {
           region = this.$route.params.id + "/" //Transformar nombres de CAtaluña a cataluna etc..
           mode = "covid";
           code = code.substring(6);
-          console.log(code);
       }
 
       return (

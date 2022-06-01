@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import SelectionView from "../views/SelectionView.vue";
 import IndividualView from "../views/IndividualView.vue";
 import CompareView from "../views/CompareView.vue";
+import RegionCompare from "../components/RegionCompare.vue"
 
 const routes = [
   {
@@ -18,6 +19,11 @@ const routes = [
     path: "/compare/:id/:startDate/:endDate",
     name: "CompareView",
     component: CompareView,
+  },
+  {
+    path: "/compareregion/:id/:startDate/:endDate",
+    name: "RegionCompare",
+    component: RegionCompare,
   },
 ];
 

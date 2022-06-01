@@ -5,20 +5,7 @@
   >
     <div class="mb-4 d-flex justify-content-center">
       <div class="col-6">
-        {{ selectedRegion }}
-        <select
-          class="form-select"
-          aria-label="Select CCAA"
-          v-model="selectedRegion"
-        >
-          <option
-            v-for="region in autonomousCommunities"
-            :value="region.name"
-            :key="region.id"
-          >
-            {{ region.name }}
-          </option>
-        </select>
+        <region-select @selectedRegion="(msg) => selectedRegion = msg" :defaulSelect="selectedRegion"></region-select>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -84,11 +71,21 @@
         >
       </div>
     </div>
+    <div class="col-12 col-md-6" id="compare-region-mode">
+      <div class="d-flex justify-content-center">
+        <router-link :to="getCompareRegionUrl" class="btn btn-outline-success"
+          >Compare Region Mode</router-link
+        >
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import RegionSelect from "../components/RegionSelect.vue"; 
+
 export default {
+
   data() {
     return {
       startDate: "2019-01-01", // Put COVID start as default date
@@ -101,29 +98,7 @@ export default {
         { id: 0, msg: "Health" },
         { id: 1, msg: "Economic" },
         { id: 2, msg: "Sociodemographic" },
-      ],
-      autonomousCommunities: [
-        { id: 0, name: "España" },
-        { id: 1, name: "Andalucia" },
-        { id: 2, name: "Aragon" },
-        { id: 3, name: "Principado de Asturias" },
-        { id: 4, name: "Illes Balears" },
-        { id: 5, name: "Canarias" },
-        { id: 6, name: "Cantabria" },
-        { id: 7, name: "Castilla y Leon" },
-        { id: 8, name: "Castilla-La Mancha" },
-        { id: 9, name: "Cataluña" },
-        { id: 10, name: "Comunitat Valenciana" },
-        { id: 11, name: "Extremadura" },
-        { id: 12, name: "Galicia" },
-        { id: 13, name: "Comunidad de Madrid" },
-        { id: 14, name: "Region de Murcia" },
-        { id: 15, name: "Comunidad Foral de Navarra" },
-        { id: 16, name: "Pais Vasco" },
-        { id: 17, name: "La Rioja" },
-        { id: 18, name: "Ceuta" },
-        { id: 19, name: "Melilla" },
-      ],
+      ]
     };
   },
   methods: {
@@ -135,6 +110,9 @@ export default {
 
       return yyyy + "-" + mm + "-" + dd;
     },
+  },
+  components: {
+    RegionSelect,
   },
   created() {
     this.endDate = this.getMaxStartDate();
@@ -155,6 +133,16 @@ export default {
     getCompareUrl() {
       return (
         "/compare/" +
+        this.selectedRegion +
+        "/" +
+        this.startDate.replaceAll("-", "") +
+        "/" +
+        this.endDate.replaceAll("-", "")
+      );
+    },
+    getCompareRegionUrl() {
+      return (
+        "/compareregion/" +
         this.selectedRegion +
         "/" +
         this.startDate.replaceAll("-", "") +
