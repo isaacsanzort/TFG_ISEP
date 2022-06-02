@@ -62,13 +62,13 @@ export default {
         sDate.setDate(sDate.getDate() + 1);
       }
       return dates;
-    }
+    },
   },
   async mounted() {
     this.loaded = false;
 
     try {
-      this.chartLabels = this.generateDateRange()
+      this.chartLabels = this.generateDateRange();
       //Peticion API
       const getResponse = await fetch(this.url);
       const gObject = await getResponse.json();

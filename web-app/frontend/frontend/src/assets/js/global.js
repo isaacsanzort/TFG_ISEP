@@ -1,6 +1,6 @@
 //cod y title van emparejados por lo que su longitud debería ser siempre la misma
 const API_INFO = {
-  España: {    
+  España: {
     id: 0,
     name: "España",
     Economic: {
@@ -38,7 +38,7 @@ const API_INFO = {
       ],
     },
     Health: {
-      cod: ["EDES123","COVID-CumulativeCases"],
+      cod: ["EDES123", "COVID-CumulativeCases"],
       title: ["Total Deaths. All Causes", "Cumulative Cases"],
     },
     Sociodemographic: {
@@ -46,23 +46,33 @@ const API_INFO = {
       title: ["Nacimientos"],
     },
     Compare: {
-      cod: ["EMN37","EDES123","COVID-CumulativeCases","IPC255678",
-      "EDES123",
-      "IPC255840",
-      "IPC255894",
-      "IPC256217",
-      "IPC256271",
-      "IPC255948",
-      "IPC255732",],
-      title: ["Nacimientos","Total Deaths. All Causes", "Cumulative Cases","Indice IPC #1",
-      "Indice IPC #2",
-      "Indice IPC #3",
-      "Indice IPC #4",
-      "Indice IPC #5",
-      "Indice IPC #6",
-      "Indice IPC #7",
-      "Indice IPC #8",]
-    }
+      cod: [
+        "EMN37",
+        "EDES123",
+        "COVID-CumulativeCases",
+        "IPC255678",
+        "EDES123",
+        "IPC255840",
+        "IPC255894",
+        "IPC256217",
+        "IPC256271",
+        "IPC255948",
+        "IPC255732",
+      ],
+      title: [
+        "Nacimientos",
+        "Total Deaths. All Causes",
+        "Cumulative Cases",
+        "Indice IPC #1",
+        "Indice IPC #2",
+        "Indice IPC #3",
+        "Indice IPC #4",
+        "Indice IPC #5",
+        "Indice IPC #6",
+        "Indice IPC #7",
+        "Indice IPC #8",
+      ],
+    },
   },
   Andalucia: {
     id: 5,
@@ -102,7 +112,7 @@ const API_INFO = {
       ],
     },
     Health: {
-      cod: ["EDES123","COVID-CumulativeCases"],
+      cod: ["EDES123", "COVID-CumulativeCases"],
       title: ["Total Deaths. All Causes", "Cumulative Cases"],
     },
     Sociodemographic: {
@@ -110,25 +120,35 @@ const API_INFO = {
       title: ["Nacimientos"],
     },
     Compare: {
-      cod: ["EMN37","EDES123","COVID-CumulativeCases","IPC255678",
-      "EDES123",
-      "IPC255840",
-      "IPC255894",
-      "IPC256217",
-      "IPC256271",
-      "IPC255948",
-      "IPC255732"],
-      title: ["Nacimientos","Total Deaths. All Causes", "Cumulative Cases","Indice IPC #1",
-      "Indice IPC #2",
-      "Indice IPC #3",
-      "Indice IPC #4",
-      "Indice IPC #5",
-      "Indice IPC #6",
-      "Indice IPC #7",
-      "Indice IPC #8"]
-    }
+      cod: [
+        "EMN37",
+        "EDES123",
+        "COVID-CumulativeCases",
+        "IPC255678",
+        "EDES123",
+        "IPC255840",
+        "IPC255894",
+        "IPC256217",
+        "IPC256271",
+        "IPC255948",
+        "IPC255732",
+      ],
+      title: [
+        "Nacimientos",
+        "Total Deaths. All Causes",
+        "Cumulative Cases",
+        "Indice IPC #1",
+        "Indice IPC #2",
+        "Indice IPC #3",
+        "Indice IPC #4",
+        "Indice IPC #5",
+        "Indice IPC #6",
+        "Indice IPC #7",
+        "Indice IPC #8",
+      ],
+    },
   },
-  Cantabria: {    
+  Cantabria: {
     id: 0,
     name: "Cantabria",
     Economic: {
@@ -166,7 +186,7 @@ const API_INFO = {
       ],
     },
     Health: {
-      cod: ["EDES123","COVID-CumulativeCases"],
+      cod: ["EDES123", "COVID-CumulativeCases"],
       title: ["Total Deaths. All Causes", "Cumulative Cases"],
     },
     Sociodemographic: {
@@ -174,23 +194,33 @@ const API_INFO = {
       title: ["Nacimientos"],
     },
     Compare: {
-      cod: ["EMN37","EDES123","COVID-CumulativeCases","IPC255678",
-      "EDES123",
-      "IPC255840",
-      "IPC255894",
-      "IPC256217",
-      "IPC256271",
-      "IPC255948",
-      "IPC255732"],
-      title: ["Nacimientos","Total Deaths. All Causes", "Cumulative Cases","Indice IPC #1",
-      "Indice IPC #2",
-      "Indice IPC #3",
-      "Indice IPC #4",
-      "Indice IPC #5",
-      "Indice IPC #6",
-      "Indice IPC #7",
-      "Indice IPC #8"]
-    }
+      cod: [
+        "EMN37",
+        "EDES123",
+        "COVID-CumulativeCases",
+        "IPC255678",
+        "EDES123",
+        "IPC255840",
+        "IPC255894",
+        "IPC256217",
+        "IPC256271",
+        "IPC255948",
+        "IPC255732",
+      ],
+      title: [
+        "Nacimientos",
+        "Total Deaths. All Causes",
+        "Cumulative Cases",
+        "Indice IPC #1",
+        "Indice IPC #2",
+        "Indice IPC #3",
+        "Indice IPC #4",
+        "Indice IPC #5",
+        "Indice IPC #6",
+        "Indice IPC #7",
+        "Indice IPC #8",
+      ],
+    },
   },
 };
 

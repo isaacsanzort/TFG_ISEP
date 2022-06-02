@@ -5,7 +5,10 @@
   >
     <div class="mb-4 d-flex justify-content-center">
       <div class="col-6">
-        <region-select @selectedRegion="(msg) => selectedRegion = msg" :defaulSelect="selectedRegion"></region-select>
+        <region-select
+          @selectedRegion="(msg) => (selectedRegion = msg)"
+          :defaulSelect="selectedRegion"
+        ></region-select>
       </div>
     </div>
     <div class="row justify-content-center">
@@ -37,28 +40,6 @@
         </div>
       </div>
     </div>
-    <div class="mb-3">
-      <div class="row" aria-label="Category Checkboxes">
-        <div
-          v-for="data in dataCheckbox"
-          :key="data.id"
-          :class="divClassCheckbox"
-        >
-          <input
-            type="radio"
-            class="btn-check"
-            name="btnradio"
-            :id="'btnradio' + data.id"
-            :value="data.msg"
-            v-model="picked"
-          />
-          <label :class="labelClassCheckbox" :for="'btnradio' + data.id"
-            >{{ data.msg }} Data</label
-          >
-        </div>
-      </div>
-    </div>
-    {{ picked }}
     <div class="d-flex justify-content-center">
       <router-link :to="getIndividualUrl" class="btn btn-outline-success"
         >Individual Mode</router-link
@@ -82,23 +63,14 @@
 </template>
 
 <script>
-import RegionSelect from "../components/RegionSelect.vue"; 
+import RegionSelect from "../components/RegionSelect.vue";
 
 export default {
-
   data() {
     return {
       startDate: "2019-01-01", // Put COVID start as default date
       endDate: null,
       selectedRegion: "España",
-      picked: "Health", //COn esto además se seleccionan por defecto. Lo cual me resuelve el problema de checked
-      divClassCheckbox: "d-flex justify-content-center mb-2",
-      labelClassCheckbox: "btn btn-outline-primary col-6",
-      dataCheckbox: [
-        { id: 0, msg: "Health" },
-        { id: 1, msg: "Economic" },
-        { id: 2, msg: "Sociodemographic" },
-      ]
     };
   },
   methods: {
@@ -121,8 +93,6 @@ export default {
     getIndividualUrl() {
       return (
         "/individual/" +
-        this.picked +
-        "/" +
         this.selectedRegion +
         "/" +
         this.startDate.replaceAll("-", "") +

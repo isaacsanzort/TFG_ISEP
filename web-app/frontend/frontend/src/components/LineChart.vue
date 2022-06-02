@@ -9,6 +9,7 @@ import { shallowRef } from "vue";
 
 Chart.register(zoomPlugin);
 
+
 export default {
   props: {
     idChart: {
@@ -44,16 +45,18 @@ export default {
               text: "Custom Chart COVID",
             },
             zoom: {
-              pan: { // Allows dragging with the mouse to move in zoom
+              pan: {
+                // Allows dragging with the mouse to move in zoom
                 enabled: true,
-                mode: 'xy'
+                mode: "xy",
               },
-              zoom: { // zoom with wheel
+              zoom: {
+                // zoom with wheel
                 wheel: {
-                  enabled:true,
+                  enabled: true,
                 },
-                mode: 'xy', 
-              }
+                mode: "xy",
+              },
             },
           },
         },

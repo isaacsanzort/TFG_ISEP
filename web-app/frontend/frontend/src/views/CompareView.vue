@@ -1,24 +1,13 @@
 <template>
-  <div class="row">
-    <div class="col-2 mt-5 pt-5">
-      <div
-        class="form-switch"
-        v-for="i in economicCheckbox.title.length"
-        :key="i - 1"
-      >
-        <input
-          class="form-check-input"
-          type="checkbox"
-          :id="economicCheckbox.cod[i - 1]"
-          :value="economicCheckbox.cod[i - 1]"
-          v-model="checkedValues"
-        />
-        <label class="form-check-label" :for="economicCheckbox.cod[i - 1]">{{
-          economicCheckbox.title[i - 1]
-        }}</label>
-      </div>
+<div>
+  <div class="d-flex justify-content-center">
+    <h3 class="border border-dark col-8 mt-3">Compare Data graph for {{this.$route.params.id}}</h3>
+  </div>
+  <div class="col-12 row">
+    <div class="col-md-3 mt-4">
+      <data-checkbox @checkedValues="(checked) => checkedValues = checked"/>
     </div>
-    <div class="col-9">
+    <div class="col-md-8">
       <line-chart
         :idChart="'compareChart'"
         :dataChart="pruebaData"
@@ -27,17 +16,17 @@
       />
     </div>
   </div>
+</div>
 </template>
 <script>
 import LineChart from "../components/LineChart.vue";
-import { API_INFO } from "../assets/js/global.js";
+import DataCheckbox from "../components/DataCheckbox.vue";
 
 export default {
   data() {
     return {
       pruebaData: [],
       pruebaLabel: [],
-      economicCheckbox: API_INFO[this.$route.params.id]["Economic"],
       checkedValues: [],
       chart: null,
       startDate: this.$route.params.startDate,
@@ -46,6 +35,7 @@ export default {
   },
   components: {
     LineChart,
+    DataCheckbox,
   },
   methods: {
     pruebaBorrar(value) {
@@ -93,41 +83,45 @@ export default {
       return data;
     },
   },
+  watch: {
+    checkedValues: async function(checkedValues){
+      let url = "";
+      let allData = [];
+      if (checkedValues.length > 0) {
+        //In JS for Objects its *for of*
+        for (let i of this.checkedValues) {
+          let region = "";
+          let mode = "ine";
+          if (i.substring(0, 6) == "COVID-") {
+            region = this.$route.params.id + "/";
+            mode = "covid";
+            i = i.substring(6);
+          }
+          url =
+            "http://127.0.0.1:5000/" +
+            mode +
+            "/" +
+            i +
+            "/" +
+            region +
+            this.startDate +
+            "/" +
+            this.endDate;
+          let data = await this.getData(url);
+          let obj_add = {
+            label: "Prueba #1",
+            data: data,
+            borderColor: "green",
+          };
+          allData.push(obj_add);
+        }
+      }
+      this.chart.data.datasets = allData;
+      this.chart.update();
+    }
+  },
   created() {
     this.pruebaLabel = this.generateDateRange();
-  },
-  async beforeUpdate() {
-    let url = "";
-    let allData = [];
-    if (this.checkedValues.length > 0) {
-      //In JS for Objects its *for of*
-      for (let i of this.checkedValues) {
-        let region = "";
-        let mode = "ine";
-        if (i.substring(0,6) == "COVID-"){
-          region = this.$route.params.id + "/";
-          mode = "covid";
-          i = i.substring(6);
-        }
-        url =
-          "http://127.0.0.1:5000/"+mode+"/" +
-          i +
-          "/" + 
-          region +
-          this.startDate +
-          "/" +
-          this.endDate;
-        let data = await this.getData(url);
-        let obj_add = {
-          label: "Prueba #1",
-          data: data,
-          borderColor: "green",
-        };
-        allData.push(obj_add);
-      }
-    }
-    this.chart.data.datasets = allData;
-    this.chart.update();
   },
 };
 </script>
