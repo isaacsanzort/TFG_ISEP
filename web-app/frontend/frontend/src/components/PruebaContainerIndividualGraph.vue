@@ -36,9 +36,17 @@ export default {
   methods: {
     async setChartData (){
       this.loaded = false;
+      this.chartLabels = this.generateDateRange();
+
       try {
         //Get data for the chart
-        await this.fetchData(this.url);
+        let chartData = await this.fetchData(this.url);
+        this.chartData = [
+          {
+            label: this.id,
+            data: chartData,
+          },
+        ];
         //renderizamos el componente
         this.loaded = true
       }catch(e){

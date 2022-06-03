@@ -2,14 +2,12 @@ const server = "http://127.0.0.1:5000/";
 const api_name = "flask_api";
 export default {
     methods: {
-        getUrl(code) {
+        getUrl(code, region ="") {
             let startDate = this.$route.params.startDate;
             let endDate = this.$route.params.endDate;
 
-            let region = "";
-
-            if (this.dataType == "Health" && code.substring(0, 6) == "COVID-") {
-                region = "/" + this.$route.params.id; //Transformar nombres de CAtaluña a cataluna etc..
+            if (code.substring(0, 6) == "COVID-") {
+                region = region == "" ? ("/" + this.$route.params.id) : ("/" + region); //Transformar nombres de CAtaluña a cataluna etc..
                 region = region.replaceAll("ñ","n"); //España a Espana, Cataluña a Cataluna
                 code = code.substring(6);
             }
@@ -58,22 +56,17 @@ export default {
             return dates;
         },
         async fetchData(url){
+            let data = [];
             try {
-                this.chartLabels = this.generateDateRange();
                 //Peticion API
                 const getResponse = await fetch(url);
                 const gObject = await getResponse.json();
                 //Asignamos el valor (ejeY y ejeX)
-                this.chartData = [
-                  {
-                    label: "Prueba COVID",
-                    data: gObject.Value,
-                  },
-                ];
-                
+                data = gObject.Value;
             } catch (e) {
                 console.log(e);
             }
+            return data;
         }
     }
 }

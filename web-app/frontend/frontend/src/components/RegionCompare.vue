@@ -27,7 +27,7 @@
           <line-chart
             :idChart="'compareregionChart'"
             :dataChart="[]"
-            :labelsChart="[]"
+            :labelsChart="chartLabel"
             @chart="(canvas) => (chart = canvas)"
           />
         </div>
@@ -40,10 +40,12 @@ import RegionSelect from "../components/RegionSelect.vue";
 import LineChart from "../components/LineChart.vue";
 import { API_INFO } from "../assets/js/global.js";
 import DataSelect from "../components/DataSelect.vue";
+import sharedLogic from "../assets/js/sharedLogic.js";
 
 export default {
   data() {
     return {
+      chartLabel: [],
       selectedRegion: null,
       chart: null,
       selectedFeature: 5,
@@ -58,109 +60,139 @@ export default {
     LineChart,
     DataSelect,
   },
+  mixins: [sharedLogic],
   methods: {
-    async setDataInChart() {
-      let url = "";
-      let allData = [];
-      let region = "";
-      let mode = "ine";
-      let i =
-        API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
-      if (
-        API_INFO[this.$route.params.id]["Compare"].cod[
-          this.selectedFeature
-        ].substring(0, 6) == "COVID-"
-      ) {
-        region = this.$route.params.id + "/";
-        mode = "covid";
-        i =
-          API_INFO[this.$route.params.id]["Compare"].cod[
-            this.selectedFeature
-          ].substring(6);
-      }
-
-      url =
-        "http://127.0.0.1:5000/" +
-        mode +
-        "/" +
-        i +
-        "/" +
-        region +
-        this.startDate +
-        "/" +
-        this.endDate;
-      console.log(url);
-      let data = await this.getData(url);
-      let obj_add = {
+    async getChartData(code, color, region=""){
+      let url = this.getUrl(code, region);
+      let data = await this.fetchData(url);
+      return {
         label: "Prueba #1",
         data: data,
-        borderColor: "green",
+        borderColor: color,
       };
-      allData.push(obj_add);
-
-      //Para comparar
-      if (this.selectedRegion != null) {
-        let url = "";
-        let region = "";
-        let mode = "ine";
-        let i =
-          API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
-        if (
-          API_INFO[this.selectedRegion]["Compare"].cod[
-            this.selectedFeature
-          ].substring(0, 6) == "COVID-"
-        ) {
-          region = this.selectedRegion + "/";
-          mode = "covid";
-          i =
-            API_INFO[this.selectedRegion]["Compare"].cod[
-              this.selectedFeature
-            ].substring(6);
-        }
-
-        url =
-          "http://127.0.0.1:5000/" +
-          mode +
-          "/" +
-          i +
-          "/" +
-          region +
-          this.startDate +
-          "/" +
-          this.endDate;
-        let data = await this.getData(url);
-        let obj_add = {
-          label: "Prueba #2",
-          data: data,
-          borderColor: "red",
-        };
-        allData.push(obj_add);
+    },
+    async setChartData() {
+      let chartData = [];
+      let code = API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
+      let data = await this.getChartData(code, "green");
+      chartData.push(data);
+      //To compare
+      if(this.selectedRegion != null){
+        code = API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
+        let data = await this.getChartData(code, "red", this.selectedRegion);
+        chartData.push(data);
       }
-      this.chart.data.datasets = allData;
+      //Update chart
+      this.chart.data.datasets = chartData;
       this.chart.update();
     },
-    async getData(url) {
-      let data = [];
-      try {
-        //Peticion API
-        const getResponse = await fetch(url);
-        const gObject = await getResponse.json();
-        //Asignamos el valor (ejeY y ejeX)
-        data = gObject.Value;
-      } catch (e) {
-        console.log(e);
-      }
-      return data;
-    },
+    // async setDataInChart() {
+    //   let url = "";
+    //   let allData = [];
+    //   let region = "";
+    //   let mode = "ine";
+    //   let i =
+    //     API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
+    //   if (
+    //     API_INFO[this.$route.params.id]["Compare"].cod[
+    //       this.selectedFeature
+    //     ].substring(0, 6) == "COVID-"
+    //   ) {
+    //     region = this.$route.params.id + "/";
+    //     mode = "covid";
+    //     i =
+    //       API_INFO[this.$route.params.id]["Compare"].cod[
+    //         this.selectedFeature
+    //       ].substring(6);
+    //   }
+
+    //   url =
+    //     "http://127.0.0.1:5000/" +
+    //     mode +
+    //     "/" +
+    //     i +
+    //     "/" +
+    //     region +
+    //     this.startDate +
+    //     "/" +
+    //     this.endDate;
+    //   console.log(url);
+    //   let data = await this.getData(url);
+    //   let obj_add = {
+    //     label: "Prueba #1",
+    //     data: data,
+    //     borderColor: "green",
+    //   };
+    //   allData.push(obj_add);
+
+    //   //Para comparar
+    //   if (this.selectedRegion != null) {
+    //     let url = "";
+    //     let region = "";
+    //     let mode = "ine";
+    //     let i =
+    //       API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
+    //     if (
+    //       API_INFO[this.selectedRegion]["Compare"].cod[
+    //         this.selectedFeature
+    //       ].substring(0, 6) == "COVID-"
+    //     ) {
+    //       region = this.selectedRegion + "/";
+    //       mode = "covid";
+    //       i =
+    //         API_INFO[this.selectedRegion]["Compare"].cod[
+    //           this.selectedFeature
+    //         ].substring(6);
+    //     }
+
+    //     url =
+    //       "http://127.0.0.1:5000/" +
+    //       mode +
+    //       "/" +
+    //       i +
+    //       "/" +
+    //       region +
+    //       this.startDate +
+    //       "/" +
+    //       this.endDate;
+    //     let data = await this.getData(url);
+    //     let obj_add = {
+    //       label: "Prueba #2",
+    //       data: data,
+    //       borderColor: "red",
+    //     };
+    //     allData.push(obj_add);
+    //   }
+    //   this.chart.data.datasets = allData;
+    //   this.chart.update();
+    // },
+    // async getData(url) {
+    //   let data = [];
+    //   try {
+    //     //Peticion API
+    //     const getResponse = await fetch(url);
+    //     const gObject = await getResponse.json();
+    //     //Asignamos el valor (ejeY y ejeX)
+    //     data = gObject.Value;
+    //   } catch (e) {
+    //     console.log(e);
+    //   }
+    //   return data;
+    // },
   },
   watch: {
     selectedRegion() {
-      this.setDataInChart();
+      console.log("Hello");
+      this.setChartData();
     },
     selectedFeature() {
-      this.setDataInChart();
+      this.setChartData();
     },
   },
+  created(){
+    this.chartLabel = this.generateDateRange();
+    this.setChartData();
+  }
 };
 </script>
 
