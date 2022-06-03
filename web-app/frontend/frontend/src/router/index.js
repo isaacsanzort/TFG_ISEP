@@ -27,10 +27,10 @@ const routes = [
     component: RegionCompare,
   },
   {
-    path:'/:pathMatch(.*)*',
-    name: 'NotFound',
-    component: NotFound
-  }
+    path: "/:pathMatch(.*)*",
+    name: "NotFound",
+    component: NotFound,
+  },
 ];
 
 const router = createRouter({

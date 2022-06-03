@@ -1,22 +1,26 @@
 <template>
-<div>
-  <div class="d-flex justify-content-center">
-    <h3 class="border border-dark col-8 mt-3">Compare Data graph for {{this.$route.params.id}}</h3>
-  </div>
-  <div class="col-12 row">
-    <div class="col-md-3 mt-4">
-      <data-checkbox @checkedValues="(checked) => checkedValues = checked"/>
+  <div>
+    <div class="d-flex justify-content-center">
+      <h3 class="border border-dark col-8 mt-3">
+        Compare Data graph for {{ this.$route.params.id }}
+      </h3>
     </div>
-    <div class="col-md-8">
-      <line-chart
-        :idChart="'compareChart'"
-        :dataChart="pruebaData"
-        :labelsChart="pruebaLabel"
-        @chart="pruebaBorrar"
-      />
+    <div class="col-12 row">
+      <div class="col-md-3 mt-4">
+        <data-checkbox
+          @checkedValues="(checked) => (checkedValues = checked)"
+        />
+      </div>
+      <div class="col-md-8">
+        <line-chart
+          :idChart="'compareChart'"
+          :dataChart="pruebaData"
+          :labelsChart="pruebaLabel"
+          @chart="pruebaBorrar"
+        />
+      </div>
     </div>
   </div>
-</div>
 </template>
 <script>
 import LineChart from "../components/LineChart.vue";
@@ -84,7 +88,7 @@ export default {
     },
   },
   watch: {
-    checkedValues: async function(checkedValues){
+    checkedValues: async function (checkedValues) {
       let url = "";
       let allData = [];
       if (checkedValues.length > 0) {
@@ -118,7 +122,7 @@ export default {
       }
       this.chart.data.datasets = allData;
       this.chart.update();
-    }
+    },
   },
   created() {
     this.pruebaLabel = this.generateDateRange();

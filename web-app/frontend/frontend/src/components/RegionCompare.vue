@@ -1,27 +1,37 @@
 <template>
-  <div class="mb-4 d-flex justify-content-center">
-    <region-select
-      @selectedRegion="(msg) => (selectedRegion = msg)"
-      :defaulSelect="selectedRegion"
-    ></region-select>
-    <div class="select-feature">
-      <select
-        class="form-select"
-        aria-label="Select Feature"
-        v-model="selectedFeature"
-      >
-        <option v-for="i in features.length" :value="i - 1" :key="i - 1">
-          {{ features[i - 1] }}
-        </option>
-      </select>
+  <div>
+    <div class="d-flex justify-content-center mb-3">
+      <div class="border border-dark col-8 mt-3 mb-3 py-3 row">
+        <h4 class="col-5 d-flex flex-row-reverse">
+          {{ this.$route.params.id }} vs
+        </h4>
+        <region-select
+          class="col-4"
+          @selectedRegion="(msg) => (selectedRegion = msg)"
+          :defaulSelect="selectedRegion"
+        />
+      </div>
     </div>
-    <div class="col-6">
-      <line-chart
-        :idChart="'compareregionChart'"
-        :dataChart="[]"
-        :labelsChart="[]"
-        @chart="(canvas) => (chart = canvas)"
-      />
+    <div class="mb-4">
+      <div class="mb-5">
+        <p class="mb-2">Select the Data you wish to compare:</p>
+        <div class="d-flex justify-content-center">
+          <data-select
+            class="col-6"
+            @selectedData="(msg) => (selectedFeature = msg)"
+          />
+        </div>
+      </div>
+      <div class="d-flex justify-content-around">
+        <div class="col-9">
+          <line-chart
+            :idChart="'compareregionChart'"
+            :dataChart="[]"
+            :labelsChart="[]"
+            @chart="(canvas) => (chart = canvas)"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -29,6 +39,7 @@
 import RegionSelect from "../components/RegionSelect.vue";
 import LineChart from "../components/LineChart.vue";
 import { API_INFO } from "../assets/js/global.js";
+import DataSelect from "../components/DataSelect.vue";
 
 export default {
   data() {
@@ -45,6 +56,7 @@ export default {
   components: {
     RegionSelect,
     LineChart,
+    DataSelect,
   },
   methods: {
     async setDataInChart() {
@@ -151,3 +163,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+p {
+  font-weight: bold;
+  align-self: center;
+}
+</style>

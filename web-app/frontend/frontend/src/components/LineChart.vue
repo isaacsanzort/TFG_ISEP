@@ -9,7 +9,6 @@ import { shallowRef } from "vue";
 
 Chart.register(zoomPlugin);
 
-
 export default {
   props: {
     idChart: {

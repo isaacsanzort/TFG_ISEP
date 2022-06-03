@@ -24,7 +24,6 @@ def generate_useful_data(json_response):
         date = datetime.utcfromtimestamp(date / 1000).strftime('%Y-%m-%d')
 
         values.append({'x': date, 'y':i["Valor"]})
-    print(values)
 # Return data in the format {x:date, y:value}
     return {
         'Value' : values
@@ -57,3 +56,16 @@ def generate_covid_json_response(url, region, start_date, end_date):
     return {
         'Value' : values
     }
+
+
+# Code Refactoring
+def api_ine(cod, start_date, end_date):
+    url = generate_ine_url(cod, start_date, end_date)
+    json_response = generate_ine_json_response(url)
+    useful_data_dict = generate_useful_data(json_response)
+    return useful_data_dict
+
+def api_covid(cod, region, start_date, end_date):
+    url = generate_covid_url(cod)
+    json_response = generate_covid_json_response(url, region, start_date, end_date)
+    return json_response
