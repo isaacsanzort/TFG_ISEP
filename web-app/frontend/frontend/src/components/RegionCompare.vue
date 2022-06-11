@@ -62,7 +62,7 @@ export default {
   },
   mixins: [sharedLogic],
   methods: {
-    async getChartData(code, color, region=""){
+    async getChartData(code, color, region = "") {
       let url = this.getUrl(code, region);
       let data = await this.fetchData(url);
       return {
@@ -73,12 +73,14 @@ export default {
     },
     async setChartData() {
       let chartData = [];
-      let code = API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
+      let code =
+        API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
       let data = await this.getChartData(code, "green");
       chartData.push(data);
       //To compare
-      if(this.selectedRegion != null){
-        code = API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
+      if (this.selectedRegion != null) {
+        code =
+          API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
         let data = await this.getChartData(code, "red", this.selectedRegion);
         chartData.push(data);
       }
@@ -86,113 +88,19 @@ export default {
       this.chart.data.datasets = chartData;
       this.chart.update();
     },
-    // async setDataInChart() {
-    //   let url = "";
-    //   let allData = [];
-    //   let region = "";
-    //   let mode = "ine";
-    //   let i =
-    //     API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
-    //   if (
-    //     API_INFO[this.$route.params.id]["Compare"].cod[
-    //       this.selectedFeature
-    //     ].substring(0, 6) == "COVID-"
-    //   ) {
-    //     region = this.$route.params.id + "/";
-    //     mode = "covid";
-    //     i =
-    //       API_INFO[this.$route.params.id]["Compare"].cod[
-    //         this.selectedFeature
-    //       ].substring(6);
-    //   }
-
-    //   url =
-    //     "http://127.0.0.1:5000/" +
-    //     mode +
-    //     "/" +
-    //     i +
-    //     "/" +
-    //     region +
-    //     this.startDate +
-    //     "/" +
-    //     this.endDate;
-    //   console.log(url);
-    //   let data = await this.getData(url);
-    //   let obj_add = {
-    //     label: "Prueba #1",
-    //     data: data,
-    //     borderColor: "green",
-    //   };
-    //   allData.push(obj_add);
-
-    //   //Para comparar
-    //   if (this.selectedRegion != null) {
-    //     let url = "";
-    //     let region = "";
-    //     let mode = "ine";
-    //     let i =
-    //       API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
-    //     if (
-    //       API_INFO[this.selectedRegion]["Compare"].cod[
-    //         this.selectedFeature
-    //       ].substring(0, 6) == "COVID-"
-    //     ) {
-    //       region = this.selectedRegion + "/";
-    //       mode = "covid";
-    //       i =
-    //         API_INFO[this.selectedRegion]["Compare"].cod[
-    //           this.selectedFeature
-    //         ].substring(6);
-    //     }
-
-    //     url =
-    //       "http://127.0.0.1:5000/" +
-    //       mode +
-    //       "/" +
-    //       i +
-    //       "/" +
-    //       region +
-    //       this.startDate +
-    //       "/" +
-    //       this.endDate;
-    //     let data = await this.getData(url);
-    //     let obj_add = {
-    //       label: "Prueba #2",
-    //       data: data,
-    //       borderColor: "red",
-    //     };
-    //     allData.push(obj_add);
-    //   }
-    //   this.chart.data.datasets = allData;
-    //   this.chart.update();
-    // },
-    // async getData(url) {
-    //   let data = [];
-    //   try {
-    //     //Peticion API
-    //     const getResponse = await fetch(url);
-    //     const gObject = await getResponse.json();
-    //     //Asignamos el valor (ejeY y ejeX)
-    //     data = gObject.Value;
-    //   } catch (e) {
-    //     console.log(e);
-    //   }
-    //   return data;
-    // },
   },
   watch: {
     selectedRegion() {
-      console.log("Hello");
       this.setChartData();
     },
     selectedFeature() {
       this.setChartData();
     },
   },
-  created(){
+  created() {
     this.chartLabel = this.generateDateRange();
     this.setChartData();
-  }
+  },
 };
 </script>
 

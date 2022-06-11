@@ -34,7 +34,7 @@ export default {
   },
   mixins: [sharedLogic],
   methods: {
-    async setChartData (){
+    async setChartData() {
       this.loaded = false;
       this.chartLabels = this.generateDateRange();
 
@@ -48,11 +48,11 @@ export default {
           },
         ];
         //renderizamos el componente
-        this.loaded = true
-      }catch(e){
+        this.loaded = true;
+      } catch (e) {
         console.log(e);
       }
-    }
+    },
   },
   async mounted() {
     await this.setChartData();

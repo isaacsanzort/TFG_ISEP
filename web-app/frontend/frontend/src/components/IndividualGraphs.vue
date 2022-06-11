@@ -26,6 +26,6 @@ export default {
   components: {
     PruebaIndividual,
   },
-  mixins: [sharedLogic] //This is being used in :url="getUrl(i)"
+  mixins: [sharedLogic], //This is being used in :url="getUrl(i)"
 };
 </script>

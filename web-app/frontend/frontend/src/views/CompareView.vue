@@ -16,7 +16,7 @@
           :idChart="'compareChart'"
           :dataChart="[]"
           :labelsChart="chartLabel"
-          @chart="(canvas) => chart = canvas"
+          @chart="(canvas) => (chart = canvas)"
         />
       </div>
     </div>
@@ -43,9 +43,9 @@ export default {
   },
   mixins: [sharedLogic],
   methods: {
-    async setChartData (checkedValues){
-       //generar colores random prueba
-      let dynamicColors = function() {
+    async setChartData(checkedValues) {
+      //generar colores random prueba
+      let dynamicColors = function () {
         let r = Math.floor(Math.random() * 255);
         let g = Math.floor(Math.random() * 255);
         let b = Math.floor(Math.random() * 255);
@@ -53,22 +53,22 @@ export default {
       };
 
       let chartData = [];
-      if (checkedValues.length > 0){
-        for (let code of checkedValues){
+      if (checkedValues.length > 0) {
+        for (let code of checkedValues) {
           let url = this.getUrl(code);
           let data = await this.fetchData(url);
           chartData.push({
             label: "Prueba #1",
             data: data,
             borderColor: dynamicColors(),
-          })
+          });
         }
       }
 
       //Update chart with new data
       this.chart.data.datasets = chartData;
       this.chart.update();
-    }
+    },
   },
   watch: {
     checkedValues: async function (checkedValues) {
