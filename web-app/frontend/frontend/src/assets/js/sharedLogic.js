@@ -12,6 +12,10 @@ export default {
         code = code.substring(6);
       }
 
+      if(region != ""){
+        region = "/" + region;
+      }
+
       return (
         server +
         api_name +

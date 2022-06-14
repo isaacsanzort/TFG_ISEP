@@ -1,6 +1,9 @@
 from app import app
 from .algorithm import *
 from .geoJSON import *
+from flask import Response
+from flask import request
+
 
 
 @app.route('/')
@@ -25,3 +28,9 @@ def recentCovidInfo(cod, region):
 @app.route('/spainmap', methods=['GET'])
 def getMap():
     return peninsula
+
+@app.route('/flask_api/corr', methods=['POST'])
+def corr():
+    jsona = request.json
+    print(jsona)
+    return json.dumps({'x':23333})

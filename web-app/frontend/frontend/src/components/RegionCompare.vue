@@ -24,6 +24,12 @@
       </div>
       <div class="d-flex justify-content-around">
         <div class="col-9">
+          <download-graph
+            :idChart="'compareregionChart'"
+            :dataChart="chartData"
+            :region="region"
+            :otherRegion="selectedRegion"
+          />
           <line-chart
             :idChart="'compareregionChart'"
             :dataChart="[]"
@@ -41,15 +47,18 @@ import LineChart from "../components/LineChart.vue";
 import { API_INFO } from "../assets/js/global.js";
 import DataSelect from "../components/DataSelect.vue";
 import sharedLogic from "../assets/js/sharedLogic.js";
+import DownloadGraph from "./DownloadGraph.vue";
 
 export default {
   data() {
     return {
       chartLabel: [],
+      chartData: null,
       selectedRegion: null,
       chart: null,
       selectedFeature: 5,
       selectedCategory: null,
+      region: this.$route.params.id,
       features: API_INFO[this.$route.params.id]["Compare"].title,
       startDate: this.$route.params.startDate,
       endDate: this.$route.params.endDate,
@@ -59,6 +68,7 @@ export default {
     RegionSelect,
     LineChart,
     DataSelect,
+    DownloadGraph,
   },
   mixins: [sharedLogic],
   methods: {
@@ -85,6 +95,7 @@ export default {
         chartData.push(data);
       }
       //Update chart
+      this.chartData = chartData;
       this.chart.data.datasets = chartData;
       this.chart.update();
     },

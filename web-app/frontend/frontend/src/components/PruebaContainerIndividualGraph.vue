@@ -1,5 +1,12 @@
 <template>
   <div class="col-md-5">
+    <download-graph
+      :idChart="this.id"
+      :dataChart="chartData"
+      :region="region"
+      :otherRegion="null"
+      v-if="loaded"
+    />
     <line-chart
       :idChart="this.id"
       :dataChart="chartData"
@@ -14,6 +21,7 @@
 
 <script>
 import LineChart from "./LineChart.vue";
+import DownloadGraph from "./DownloadGraph.vue";
 import sharedLogic from "../assets/js/sharedLogic.js";
 
 export default {
@@ -29,6 +37,7 @@ export default {
     return {
       chartData: [],
       chartLabels: [],
+      region: this.$route.params.id,
       loaded: false,
     };
   },
@@ -59,6 +68,7 @@ export default {
   },
   components: {
     LineChart,
+    DownloadGraph,
   },
 };
 </script>

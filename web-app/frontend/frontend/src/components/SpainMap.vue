@@ -65,7 +65,6 @@ export default {
       selectedOption: 1,
     };
   },
-  emits: ["selectedRegion"],
   mixins: [sharedLogic],
   methods: {
     async getCovidData(type, region) {
@@ -179,6 +178,7 @@ export default {
 
       async function zoomToFeature(e) {
         //map.fitBounds(e.target.getBounds());
+        p.$emit("region", e.target.feature.properties.APINAME);
         prueba1(e.target.feature.properties);
         covidStats.update(e.target.feature.properties);
         await p.updateCardValues(e.target.feature.properties);
@@ -233,6 +233,7 @@ export default {
       covidStats.addTo(map);
     },
   },
+  emits: ["region"],
   mounted() {
     this.setupLeafletMap();
   },

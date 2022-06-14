@@ -1,49 +1,50 @@
 <template>
   <div class="col-md-12 px-0">
-    <spain-map />
-    <div class="mb-4 d-flex justify-content-center">
-      <div class="col-6">
-        <region-select
-          @selectedRegion="(msg) => (selectedRegion = msg)"
-          :defaulSelect="selectedRegion"
-        />
-        <home-dates
-          @startDate="(date) => (startDate = date)"
-          @endDate="(date) => (endDate = date)"
-          :maxEndDate="maxEndDate"
-          :parentEndDate="endDate"
-          :parentStartDate="startDate"
-        />
+    <spain-map @region="(region) => (selectedRegion = region)" />
+    <div id="more-stats" class="mt-3">
+      <div class="d-flex justify-content-center mt-5">
+        <div class="col-6">
+          <!-- <region-select
+            @selectedRegion="(msg) => (selectedRegion = msg)"
+            :defaulSelect="selectedRegion"
+          /> -->
+          <home-dates
+            @startDate="(date) => (startDate = date)"
+            @endDate="(date) => (endDate = date)"
+            :maxEndDate="maxEndDate"
+            :parentEndDate="endDate"
+            :parentStartDate="startDate"
+          />
+        </div>
       </div>
-    </div>
-    <div>
-      <home-buttons
-        :mode="'individual'"
-        :endDate="endDate"
-        :startDate="startDate"
-        :selectedRegion="selectedRegion"
-        >Individual Data</home-buttons
-      >
-      <home-buttons
-        :mode="'compare'"
-        :endDate="endDate"
-        :startDate="startDate"
-        :selectedRegion="selectedRegion"
-        >Compare Data</home-buttons
-      >
-      <home-buttons
-        :mode="'compareregion'"
-        :endDate="endDate"
-        :startDate="startDate"
-        :selectedRegion="selectedRegion"
-        >Compare Region</home-buttons
-      >
+      <div>
+        <home-buttons
+          :mode="'individual'"
+          :endDate="endDate"
+          :startDate="startDate"
+          :selectedRegion="selectedRegion"
+          >Individual Data</home-buttons
+        >
+        <home-buttons
+          :mode="'compare'"
+          :endDate="endDate"
+          :startDate="startDate"
+          :selectedRegion="selectedRegion"
+          >Compare Data</home-buttons
+        >
+        <home-buttons
+          :mode="'compareregion'"
+          :endDate="endDate"
+          :startDate="startDate"
+          :selectedRegion="selectedRegion"
+          >Compare Region</home-buttons
+        >
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import RegionSelect from "../components/RegionSelect.vue";
 import HomeButtons from "../components/HomeButtons.vue";
 import HomeDates from "../components/HomeDates.vue";
 import SpainMap from "../components/SpainMap.vue";
@@ -58,7 +59,6 @@ export default {
     };
   },
   components: {
-    RegionSelect,
     HomeButtons,
     HomeDates,
     SpainMap,
@@ -76,6 +76,12 @@ export default {
   created() {
     this.endDate = this.getMaxStartDate();
     this.maxEndDate = this.getMaxStartDate();
+  },
+  watch: {
+    selectedRegion() {
+      console.log("hoal");
+      console.log(this.selectedRegion);
+    },
   },
 };
 </script>
