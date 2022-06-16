@@ -3,56 +3,56 @@
     <p class="d-flex flex-row mt-2 mb-1 ms-4">Economic</p>
     <div
       class="d-flex flex-row form-switch ms-4"
-      v-for="i in economicCheckbox.title.length"
-      :key="i - 1"
+      v-for="key in economicData"
+      :key="key"
     >
       <input
         class="form-check-input"
         type="checkbox"
-        :id="economicCheckbox.cod[i - 1]"
-        :value="economicCheckbox.cod[i - 1]"
+        :id="key"
+        :value="key"
         v-model="checkedValues"
       />
-      <label class="form-check-label ms-2" :for="economicCheckbox.cod[i - 1]">{{
-        economicCheckbox.title[i - 1]
+      <label class="form-check-label ms-2" :for="key">{{
+        region_codes[key].title
       }}</label>
     </div>
 
     <p class="d-flex flex-row mt-2 mb-1 ms-4">Health</p>
     <div
       class="d-flex flex-row form-switch ms-4"
-      v-for="i in healthCheckbox.title.length"
-      :key="i - 1"
+      v-for="key in healthData"
+      :key="key"
     >
       <input
         class="form-check-input"
         type="checkbox"
-        :id="healthCheckbox.cod[i - 1]"
-        :value="healthCheckbox.cod[i - 1]"
+        :id="key"
+        :value="key"
         v-model="checkedValues"
       />
-      <label class="form-check-label ms-2" :for="healthCheckbox.cod[i - 1]">{{
-        healthCheckbox.title[i - 1]
+      <label class="form-check-label ms-2" :for="key">{{
+        region_codes[key].title
       }}</label>
     </div>
 
     <p class="d-flex flex-row mt-2 mb-1 ms-4">Sociodemographic</p>
     <div
       class="d-flex flex-row form-switch ms-4"
-      v-for="i in sociodemographicCheckbox.title.length"
-      :key="i - 1"
+      v-for="key in sociodemographicData"
+      :key="key"
     >
       <input
         class="form-check-input"
         type="checkbox"
-        :id="sociodemographicCheckbox.cod[i - 1]"
-        :value="sociodemographicCheckbox.cod[i - 1]"
+        :id="key"
+        :value="key"
         v-model="checkedValues"
       />
       <label
         class="form-check-label ms-2"
-        :for="sociodemographicCheckbox.cod[i - 1]"
-        >{{ sociodemographicCheckbox.title[i - 1] }}</label
+        :for="key"
+        >{{ region_codes[key].title }}</label
       >
     </div>
   </div>
@@ -63,12 +63,35 @@ import { API_INFO } from "../assets/js/global.js";
 export default {
   data() {
     return {
-      economicCheckbox: API_INFO[this.$route.params.id]["Economic"],
-      healthCheckbox: API_INFO[this.$route.params.id]["Health"],
-      sociodemographicCheckbox:
-        API_INFO[this.$route.params.id]["Sociodemographic"],
+      region_codes: API_INFO[this.$route.params.id].codes,
+      region_codes_array: Object.keys(API_INFO[this.$route.params.id].codes),
       checkedValues: [],
     };
+  },
+  methods: {
+    getDataArray(type){
+      let codes = [];
+      for (let code of this.region_codes_array){
+        if(this.region_codes[code].type == type){
+          codes.push(code);
+        }
+      }
+      return codes;
+    }
+  },
+  computed: {
+    economicData() {
+      let economicCodes = this.getDataArray("Economic");
+      return economicCodes;
+    },
+    healthData(){
+      let healthCodes = this.getDataArray("Health");
+      return healthCodes;
+    },
+    sociodemographicData() {
+      let sociodemographicCodes = this.getDataArray("Sociodemographic");
+      return sociodemographicCodes;
+    }
   },
   emits: ["checkedValues"],
   watch: {

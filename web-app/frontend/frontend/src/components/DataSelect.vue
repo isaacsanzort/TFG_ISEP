@@ -5,8 +5,8 @@
       aria-label="Select Feature"
       v-model="selectedFeature"
     >
-      <option v-for="i in features.length" :value="i - 1" :key="i - 1">
-        {{ features[i - 1] }}
+      <option v-for="code in Object.keys(region_codes)" :value="region_codes[code].title" :key="region_codes[code].title">
+        {{ region_codes[code].title }}
       </option>
     </select>
   </div>
@@ -17,8 +17,8 @@ import { API_INFO } from "../assets/js/global.js";
 export default {
   data() {
     return {
-      selectedFeature: 5,
-      features: API_INFO[this.$route.params.id]["Compare"].title,
+      selectedFeature: null,
+      region_codes: API_INFO[this.$route.params.id].codes,
     };
   },
   emits: ["selectedData"],
@@ -27,5 +27,10 @@ export default {
       this.$emit("selectedData", selectedFeature);
     },
   },
+  created(){
+    let code = Object.keys(this.region_codes)[0];
+    let title = this.region_codes[code].title;
+    this.selectedFeature = title;
+  }
 };
 </script>

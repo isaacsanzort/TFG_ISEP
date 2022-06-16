@@ -34,6 +34,7 @@ import LineChart from "../components/LineChart.vue";
 import DataCheckbox from "../components/DataCheckbox.vue";
 import sharedLogic from "../assets/js/sharedLogic.js";
 import DownloadGraph from "../components/DownloadGraph.vue";
+import { API_INFO } from "../assets/js/global.js";
 
 export default {
   data() {
@@ -44,6 +45,7 @@ export default {
       chart: null,
       idChart: "compareChart",
       region: this.$route.params.id,
+      region_codes: API_INFO[this.$route.params.id].codes,
       startDate: this.$route.params.startDate,
       endDate: this.$route.params.endDate,
     };
@@ -92,7 +94,10 @@ export default {
       let chartData = [];
       if (checkedValues.length > 0) {
         for (let code of checkedValues) {
-          let url = this.getUrl(code);
+          //To check if I need to call the covid API
+          let isCovid = this.region_codes[code].isCovid;
+
+          let url = this.getUrl(code,"",isCovid);
           let data = await this.fetchData(url);
           chartData.push({
             label: "Prueba #1",

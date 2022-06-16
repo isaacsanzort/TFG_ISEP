@@ -56,10 +56,9 @@ export default {
       chartData: null,
       selectedRegion: null,
       chart: null,
-      selectedFeature: 5,
-      selectedCategory: null,
+      selectedFeature: null,
       region: this.$route.params.id,
-      features: API_INFO[this.$route.params.id]["Compare"].title,
+      region_codes: API_INFO[this.$route.params.id].codes,
       startDate: this.$route.params.startDate,
       endDate: this.$route.params.endDate,
     };
@@ -72,8 +71,11 @@ export default {
   },
   mixins: [sharedLogic],
   methods: {
-    async getChartData(code, color, region = "") {
-      let url = this.getUrl(code, region);
+    async getChartData(code, color,  isCovid, region = "",) {
+      if (!isCovid){
+        region = "";
+      }
+      let url = this.getUrl(code, region, isCovid);
       let data = await this.fetchData(url);
       return {
         label: "Prueba #1",
@@ -81,23 +83,40 @@ export default {
         borderColor: color,
       };
     },
-    async setChartData() {
-      let chartData = [];
-      let code =
-        API_INFO[this.$route.params.id]["Compare"].cod[this.selectedFeature];
-      let data = await this.getChartData(code, "green");
-      chartData.push(data);
-      //To compare
-      if (this.selectedRegion != null) {
-        code =
-          API_INFO[this.selectedRegion]["Compare"].cod[this.selectedFeature];
-        let data = await this.getChartData(code, "red", this.selectedRegion);
-        chartData.push(data);
+    //Get the API code 
+    getRegionCode(region,title){
+      let sameTitleCode = "";
+      
+      for (let code of Object.keys(region)){
+        if (region[code].title == title){
+          sameTitleCode = code;
+          break;
+        }
       }
-      //Update chart
-      this.chartData = chartData;
-      this.chart.data.datasets = chartData;
-      this.chart.update();
+      //returns the code for the other region that has the same title
+      return sameTitleCode;
+    },
+    async setChartData() {
+      //To avoid errors during creation, because selectedFeature is null
+      if(this.selectedFeature != null){
+        let chartData = [];
+        let code = this.getRegionCode(this.region_codes,this.selectedFeature);
+        let isCovid = this.region_codes[code].isCovid;
+        let data = await this.getChartData(code, "green", isCovid);
+        chartData.push(data);
+        //To compare
+        if (this.selectedRegion != null) {
+          let otherRegion = API_INFO[this.selectedRegion].codes;
+          code = this.getRegionCode(otherRegion,this.selectedFeature);
+          isCovid = otherRegion[code].isCovid;
+          let data = await this.getChartData(code, "red", isCovid, this.selectedRegion);
+          chartData.push(data);
+        }
+        //Update chart
+        this.chartData = chartData;
+        this.chart.data.datasets = chartData;
+        this.chart.update();
+      }
     },
   },
   watch: {

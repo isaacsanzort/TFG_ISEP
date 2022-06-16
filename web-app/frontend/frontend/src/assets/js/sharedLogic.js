@@ -2,19 +2,18 @@ const server = "http://127.0.0.1:5000/";
 const api_name = "flask_api";
 export default {
   methods: {
-    getUrl(code, region = "") {
+    getUrl(code, region = "", isCovidApi=false) {
       let startDate = this.$route.params.startDate;
       let endDate = this.$route.params.endDate;
 
-      if (code.substring(0, 6) == "COVID-") {
+      if (isCovidApi) {
         region = region == "" ? "/" + this.$route.params.id : "/" + region; //Transformar nombres de CAtaluña a cataluna etc..
         region = region.replaceAll("ñ", "n"); //España a Espana, Cataluña a Cataluna
-        code = code.substring(6);
       }
 
-      if(region != ""){
-        region = "/" + region;
-      }
+      // if (region != "") {
+      //   region = "/" + region;
+      // }
 
       return (
         server +

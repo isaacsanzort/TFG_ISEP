@@ -3,7 +3,7 @@
     <prueba-individual
       v-for="i in data_region"
       :key="i"
-      :url="getUrl(i)"
+      :url="getUrl(i,'',region_codes[i].isCovid)"
       :id="i"
     />
   </div>
@@ -18,9 +18,22 @@ export default {
   props: {
     dataType: String,
   },
+  data (){
+    return {
+      region_codes: API_INFO[this.$route.params.id].codes,
+    }
+  },
   computed: {
     data_region: function () {
-      return API_INFO[this.$route.params.id][this.dataType].cod; // url/individual/:type/:id
+      let api_codes = Object.keys(this.region_codes);
+      let code_type = [];
+
+      for (let code of api_codes){
+        if(this.region_codes[code].type == this.dataType){
+          code_type.push(code);
+        }
+      }
+      return code_type; // url/individual/:type/:id
     },
   },
   components: {

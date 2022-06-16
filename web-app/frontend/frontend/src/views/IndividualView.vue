@@ -29,7 +29,6 @@ export default {
   },
   watch: {
     selectedCategory: function (category) {
-      console.log(category);
       this.selectedCategory = category;
     },
   },
