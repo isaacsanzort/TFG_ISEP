@@ -39,6 +39,11 @@
               <small>Deaths today<br /></small>
               <span>Stats: </span>
             </div>
+            <div class="d-flex justify-content-center ">
+              <div class="div-btn-circle">
+                <button type="button" class="btn btn-outline-success btn-circle btn-sm" onclick="document.getElementById('more-stats').scrollIntoView();"><i class="bi bi-caret-down"></i></button>
+              </div>>
+            </div>
           </div>
         </div>
       </div>
@@ -241,9 +246,23 @@ export default {
 </script>
 
 <style scoped>
+i{
+  font-size: x-large;
+}
 #map,
 .card {
   width: 100%; /* It will occupy the 100% width of the col assigned*/
   height: 80vh;
+}
+
+.btn-circle{
+  border-radius: 50%;
+  height: 2.5rem;
+  width: 2.7rem;
+}
+
+.div-btn-circle{
+  position: absolute;
+  bottom: 2%;
 }
 </style>

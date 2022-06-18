@@ -5,6 +5,7 @@
       aria-label="Select CCAA"
       v-model="selectedRegion"
     >
+      <option selected :value="null" disabled><span>-- Select a region --</span></option>
       <option v-for="region in regions" :value="region.name" :key="region.id">
         {{ region.name }}
       </option>
@@ -20,7 +21,7 @@ export default {
   },
   data() {
     return {
-      selectedRegion: this.defaulSelect,
+      selectedRegion: null,
       regions: [
         { id: 0, name: "España" },
         { id: 1, name: "Andalucia" },
@@ -51,3 +52,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+span{
+  color: gray;
+}
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="align-items-center mt-5">
+    <div class="align-items-center mt-2">
       <individual-mode-home />
     </div>
   </div>

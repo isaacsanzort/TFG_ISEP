@@ -10,7 +10,9 @@
             <span>{{spearmanCorr}}</span>
             <p class="p-value">Two-tailed p-value (Spearman):  </p>
             <span>{{spearmanPValue}}</span>
+            <div class="d-flex justify-content-center">
             <button type="button" class="btn btn-primary" @click="showCorrData = false">Calculate other</button>
+            </div>
         </div>
         <div v-else>
             <h4 id="corr">Correlation</h4>

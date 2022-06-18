@@ -22,6 +22,9 @@ export default {
     dataChart: {
       type: Array,
     },
+    text: {
+      type: String,
+    }
   },
   emits: ["chart"],
   mounted() {
@@ -44,7 +47,7 @@ export default {
           plugins: {
             title: {
               display: true,
-              text: "Custom Chart COVID",
+              text: this.text,
             },
             zoom: {
               pan: {

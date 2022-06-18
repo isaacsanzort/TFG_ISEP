@@ -11,9 +11,10 @@
           @checkedValues="(checked) => (checkedValues = checked)"
         />
       </div>
-      <div id="graph" class="col-md-6">
+      <div id="graph" class="col-md-6 indiv-chart">
         <download-graph
           :idChart="idChart"
+          :chart="chart"
           :dataChart="chartData"
           :region="region"
           :otherRegion="null"
@@ -22,6 +23,7 @@
           :idChart="idChart"
           :dataChart="[]"
           :labelsChart="chartLabel"
+          :text="'Compare Graph'"
           @chart="(canvas) => (chart = canvas)"
         />
       </div>
@@ -79,11 +81,12 @@ export default {
         for (let code of checkedValues) {
           //To check if I need to call the covid API
           let isCovid = this.region_codes[code].isCovid;
+          let label = this.region_codes[code].title;
 
           let url = this.getUrl(code, "", isCovid);
           let data = await this.fetchData(url);
           chartData.push({
-            label: "Prueba #1",
+            label: label,
             data: data,
             borderColor: dynamicColors(),
           });
@@ -120,3 +123,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+.indiv-chart{
+  border: 1px double black;
+  border-radius: 5px;
+  padding: 5px;
+}
+</style>

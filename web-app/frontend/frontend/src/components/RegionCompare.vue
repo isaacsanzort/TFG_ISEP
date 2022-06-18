@@ -26,6 +26,7 @@
         <div class="col-9">
           <download-graph
             :idChart="'compareregionChart'"
+            :chart="chart"
             :dataChart="chartData"
             :region="region"
             :otherRegion="selectedRegion"
@@ -33,6 +34,7 @@
           <line-chart
             :idChart="'compareregionChart'"
             :dataChart="[]"
+            :text="'Compare region'"
             :labelsChart="chartLabel"
             @chart="(canvas) => (chart = canvas)"
           />
@@ -72,13 +74,20 @@ export default {
   mixins: [sharedLogic],
   methods: {
     async getChartData(code, color, isCovid, region = "") {
+      
       if (!isCovid) {
         region = "";
       }
       let url = this.getUrl(code, region, isCovid);
       let data = await this.fetchData(url);
+
+      let label = this.region;
+      if(color == "red"){
+        label = this.selectedRegion;
+      }
+
       return {
-        label: "Prueba #1",
+        label: label,
         data: data,
         borderColor: color,
       };

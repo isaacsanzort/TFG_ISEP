@@ -37,4 +37,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+.indiv-chart{
+  border: 1px double black;
+  border-radius: 5px;
+  padding: 5px;
+}
 </style>

@@ -4,6 +4,7 @@
       v-for="i in data_region"
       :key="i"
       :url="getUrl(i, '', region_codes[i].isCovid)"
+      :label="region_codes[i].title"
       :id="i"
     />
   </div>
@@ -42,3 +43,10 @@ export default {
   mixins: [sharedLogic], //This is being used in :url="getUrl(i)"
 };
 </script>
+<style scoped>
+.indiv-chart{
+  border: 1px double black;
+  border-radius: 5px;
+  padding: 5px;
+}
+</style>

@@ -1,11 +1,9 @@
 <template>
   <div>
-    <div class="d-flex justify-content-center">
-      <div class="d-flex justify-content-center">
+    <div>
         <router-link :to="getUrl()" class="btn btn-outline-success"
           ><slot></slot
         ></router-link>
-      </div>
     </div>
   </div>
 </template>

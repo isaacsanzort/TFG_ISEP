@@ -1,18 +1,23 @@
 <template>
-  <div class="col-md-5">
-    <download-graph
-      :idChart="this.id"
-      :dataChart="chartData"
-      :region="region"
-      :otherRegion="null"
-      v-if="loaded"
-    />
-    <line-chart
-      :idChart="this.id"
-      :dataChart="chartData"
-      :labelsChart="chartLabels"
-      v-if="loaded"
-    />
+  <div class="col-md-5 mx-2">
+    <div class="indiv-chart" v-if="loaded">
+      <div class="indiv-chart">
+        <download-graph
+          :idChart="id"
+          :chart="chart"
+          :dataChart="chartData"
+          :region="region"
+          :otherRegion="null"
+        />
+        <line-chart
+          :idChart="id"
+          :dataChart="chartData"
+          :labelsChart="chartLabels"
+          :text="label"
+          @chart="(canvas) => (chart = canvas)"
+        />
+      </div>
+    </div>
     <div v-else class="spinner-border" role="status">
       <span class="sr-only"></span>
     </div>
@@ -32,9 +37,13 @@ export default {
     id: {
       type: String,
     },
+    label: {
+      type: String,
+    }
   },
   data() {
     return {
+      chart: null,
       chartData: [],
       chartLabels: [],
       region: this.$route.params.id,
@@ -52,8 +61,9 @@ export default {
         let chartData = await this.fetchData(this.url);
         this.chartData = [
           {
-            label: this.id,
+            label: this.label,
             data: chartData,
+            borderColor: 'blue',
           },
         ];
         //renderizamos el componente
@@ -72,3 +82,4 @@ export default {
   },
 };
 </script>
+
