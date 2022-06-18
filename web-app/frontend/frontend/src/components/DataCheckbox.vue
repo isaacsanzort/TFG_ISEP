@@ -14,7 +14,7 @@
         v-model="checkedValues"
       />
       <label class="form-check-label ms-2" :for="key">{{
-        region_codes[key].title
+        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
       }}</label>
     </div>
 
@@ -32,7 +32,7 @@
         v-model="checkedValues"
       />
       <label class="form-check-label ms-2" :for="key">{{
-        region_codes[key].title
+        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
       }}</label>
     </div>
 
@@ -49,11 +49,9 @@
         :value="key"
         v-model="checkedValues"
       />
-      <label
-        class="form-check-label ms-2"
-        :for="key"
-        >{{ region_codes[key].title }}</label
-      >
+      <label class="form-check-label ms-2" :for="key">{{
+        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
+      }}</label>
     </div>
   </div>
 </template>
@@ -69,29 +67,29 @@ export default {
     };
   },
   methods: {
-    getDataArray(type){
+    getDataArray(type) {
       let codes = [];
-      for (let code of this.region_codes_array){
-        if(this.region_codes[code].type == type){
+      for (let code of this.region_codes_array) {
+        if (this.region_codes[code].type == type) {
           codes.push(code);
         }
       }
       return codes;
-    }
+    },
   },
   computed: {
     economicData() {
       let economicCodes = this.getDataArray("Economic");
       return economicCodes;
     },
-    healthData(){
+    healthData() {
       let healthCodes = this.getDataArray("Health");
       return healthCodes;
     },
     sociodemographicData() {
       let sociodemographicCodes = this.getDataArray("Sociodemographic");
       return sociodemographicCodes;
-    }
+    },
   },
   emits: ["checkedValues"],
   watch: {

@@ -71,8 +71,8 @@ export default {
   },
   mixins: [sharedLogic],
   methods: {
-    async getChartData(code, color,  isCovid, region = "",) {
-      if (!isCovid){
+    async getChartData(code, color, isCovid, region = "") {
+      if (!isCovid) {
         region = "";
       }
       let url = this.getUrl(code, region, isCovid);
@@ -83,12 +83,12 @@ export default {
         borderColor: color,
       };
     },
-    //Get the API code 
-    getRegionCode(region,title){
+    //Get the API code
+    getRegionCode(region, title) {
       let sameTitleCode = "";
-      
-      for (let code of Object.keys(region)){
-        if (region[code].title == title){
+
+      for (let code of Object.keys(region)) {
+        if (region[code].title == title) {
           sameTitleCode = code;
           break;
         }
@@ -98,18 +98,23 @@ export default {
     },
     async setChartData() {
       //To avoid errors during creation, because selectedFeature is null
-      if(this.selectedFeature != null){
+      if (this.selectedFeature != null) {
         let chartData = [];
-        let code = this.getRegionCode(this.region_codes,this.selectedFeature);
+        let code = this.getRegionCode(this.region_codes, this.selectedFeature);
         let isCovid = this.region_codes[code].isCovid;
         let data = await this.getChartData(code, "green", isCovid);
         chartData.push(data);
         //To compare
         if (this.selectedRegion != null) {
           let otherRegion = API_INFO[this.selectedRegion].codes;
-          code = this.getRegionCode(otherRegion,this.selectedFeature);
+          code = this.getRegionCode(otherRegion, this.selectedFeature);
           isCovid = otherRegion[code].isCovid;
-          let data = await this.getChartData(code, "red", isCovid, this.selectedRegion);
+          let data = await this.getChartData(
+            code,
+            "red",
+            isCovid,
+            this.selectedRegion
+          );
           chartData.push(data);
         }
         //Update chart

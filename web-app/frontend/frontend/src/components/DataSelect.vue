@@ -5,7 +5,11 @@
       aria-label="Select Feature"
       v-model="selectedFeature"
     >
-      <option v-for="code in Object.keys(region_codes)" :value="region_codes[code].title" :key="region_codes[code].title">
+      <option
+        v-for="code in Object.keys(region_codes)"
+        :value="region_codes[code].title"
+        :key="region_codes[code].title"
+      >
         {{ region_codes[code].title }}
       </option>
     </select>
@@ -27,10 +31,10 @@ export default {
       this.$emit("selectedData", selectedFeature);
     },
   },
-  created(){
+  created() {
     let code = Object.keys(this.region_codes)[0];
     let title = this.region_codes[code].title;
     this.selectedFeature = title;
-  }
+  },
 };
 </script>

@@ -1,22 +1,26 @@
 <template>
-  <div>
-    <a
-      id="download"
-      download="ChartImage.jpg"
-      href=""
-      class="btn btn-primary float-right bg-flat-color-1"
-      title="Descargar Gráfico"
-      @click="downloadChart"
-      >download</a
-    >
-    <p id="csv" href="" @click="downloadCsv">To csv</p>
-    <p id="json" href="" @click="downloadJSON">To json</p>
-    <p id="xml" href="" @click="downloadXML">To xml</p>
+  <div class="d-flex justify-content-start">
+      <div class="btn-group  me-3" role="group">
+          <button id="btnGroup" type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-download"></i> Image</button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroup">
+              <li><a id="png" download="ChartImage.png" class="dropdown-item" @click="downloadChart('png')" href="#">as .png file</a></li>
+              <li><a id="jpg" download="ChartImage.jpg" class="dropdown-item" @click="downloadChart('jpg')" href="#">as .jpg file</a></li>
+          </ul>
+      </div>
+      <div class="btn-group" role="group">
+          <button id="btnGroup" type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-download"></i> Data</button>
+          <ul class="dropdown-menu" aria-labelledby="btnGroup">
+              <li><a class="dropdown-item" href="#" @click="downloadCsv">as .csv file</a></li>
+              <li><a class="dropdown-item" href="#" @click="downloadJSON">as .json file</a></li>
+              <li><a class="dropdown-item" href="#" @click="downloadXML">as .xml file</a></li>
+          </ul>
+      </div>
   </div>
 </template>
 
 <script>
 import { toXML } from "jstoxml";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 export default {
   props: {
@@ -41,10 +45,10 @@ export default {
     };
   },
   methods: {
-    downloadChart() {
+    downloadChart(type) {
       /*Get image of canvas element*/
       var url_base64jp = document.getElementById(this.idChart).toDataURL({
-        format: "png",
+        format: type,
         multiplier: 2,
       });
       /*get download button (tag: <a></a>) */
@@ -111,7 +115,7 @@ export default {
       let region = this.format_region;
 
       //So I can add the labels assign to a region
-      obj[region] = {}
+      obj[region] = {};
 
       for (const values of this.dataChart) {
         let data = values.data;
@@ -124,7 +128,6 @@ export default {
           value.push(row.y);
         }
 
-        
         if (isOtherRegion) {
           //The difference between regions is based on color green -> region, red -> otherRegion
           if (values.borderColor == "green") {
@@ -133,16 +136,14 @@ export default {
             region = this.format_otherRegion;
           }
 
-          obj[region] = {}
-          
-          
-        } 
-        obj[region][label]= {
-              Dates: dates,
-              Values: value,
+          obj[region] = {};
+        }
+        obj[region][label] = {
+          Dates: dates,
+          Values: value,
         };
       }
-      
+
       return obj;
     },
 
@@ -185,9 +186,10 @@ export default {
     },
   },
   watch: {
-    otherRegion(){
-      this.format_otherRegion = (this.otherRegion != null) ? this.otherRegion.replaceAll("ñ", "n") : null;
-    }
-  }
+    otherRegion() {
+      this.format_otherRegion =
+        this.otherRegion != null ? this.otherRegion.replaceAll("ñ", "n") : null;
+    },
+  },
 };
 </script>

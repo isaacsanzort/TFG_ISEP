@@ -5,14 +5,13 @@
         Compare Data graph for {{ this.$route.params.id }}
       </h3>
     </div>
-    <p id="corr" href="" @click="getCorr">CORRELATION</p>
-    <div class="col-12 row">
-      <div class="col-md-3 mt-4">
+    <div class="col-12 mt-3 row">
+      <div class="col-md-3">
         <data-checkbox
           @checkedValues="(checked) => (checkedValues = checked)"
         />
       </div>
-      <div class="col-md-8">
+      <div id="graph" class="col-md-6">
         <download-graph
           :idChart="idChart"
           :dataChart="chartData"
@@ -26,6 +25,12 @@
           @chart="(canvas) => (chart = canvas)"
         />
       </div>
+      <div class="col-md-3">
+        <correlation-section
+          :chartData="chartData"
+          :isCorrelatable="isCorrelatable"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -34,6 +39,7 @@ import LineChart from "../components/LineChart.vue";
 import DataCheckbox from "../components/DataCheckbox.vue";
 import sharedLogic from "../assets/js/sharedLogic.js";
 import DownloadGraph from "../components/DownloadGraph.vue";
+import CorrelationSection from "../components/CorrelationSection.vue";
 import { API_INFO } from "../assets/js/global.js";
 
 export default {
@@ -48,40 +54,17 @@ export default {
       region_codes: API_INFO[this.$route.params.id].codes,
       startDate: this.$route.params.startDate,
       endDate: this.$route.params.endDate,
+      isCorrelatable: false,
     };
   },
   components: {
     LineChart,
     DataCheckbox,
     DownloadGraph,
+    CorrelationSection,
   },
   mixins: [sharedLogic],
   methods: {
-    getCorr() {
-      if (Object.keys(this.chartData).length == 2) {
-        console.log(this.chartData[0].data.length);
-        console.log(this.chartData[1].data);
-        if (this.chartData[0].data.length == this.chartData[1].data.length) {
-          const data = new FormData();
-          data.append("data-1", JSON.stringify(this.chartData[0].data));
-          data.append("data-2", JSON.stringify(this.chartData[1].data));
-          fetch("http://127.0.0.1:5000/flask_api/corr", {
-            method: "POST",
-            body: JSON.stringify({
-              data1: this.chartData[0].data,
-            }),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }) // Converting to JSON
-            .then((response) => response)
-            //Displaying results to console
-            .then((json) => console.log(json));
-        } else {
-          console.log("bad");
-        }
-      }
-    },
     async setChartData(checkedValues) {
       //generar colores random prueba
       let dynamicColors = function () {
@@ -97,7 +80,7 @@ export default {
           //To check if I need to call the covid API
           let isCovid = this.region_codes[code].isCovid;
 
-          let url = this.getUrl(code,"",isCovid);
+          let url = this.getUrl(code, "", isCovid);
           let data = await this.fetchData(url);
           chartData.push({
             label: "Prueba #1",
@@ -119,6 +102,21 @@ export default {
   },
   created() {
     this.chartLabel = this.generateDateRange();
+  },
+  updated() {
+    //To make sure you can only calculate correlation for 2 variables
+    if (Object.keys(this.chartData).length == 2) {
+      //checks if variables have the same frequency (i.e data is monthly,daily,annually... given) for correlation purposes
+      let [code_feature_1, code_feature_2] = this.checkedValues;
+      if (
+        this.region_codes[code_feature_1].category ==
+        this.region_codes[code_feature_2].category
+      ) {
+        this.isCorrelatable = true;
+      }
+    } else {
+      this.isCorrelatable = false;
+    }
   },
 };
 </script>

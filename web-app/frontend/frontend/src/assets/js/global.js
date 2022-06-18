@@ -232,74 +232,74 @@ const API_INFO = {
     id: 0,
     name: "España",
     codes: {
-      "IPC255678" : {
-          type: "Economic",
-          title: "Indice IPC #1",
-          isCovid: false,
-          category: "M"
+      IPC255678: {
+        type: "Economic",
+        title: "Indice IPC #1",
+        isCovid: false,
+        category: "M",
       },
-      "IPC255894" : {
+      IPC255894: {
         type: "Economic",
         title: "Indice IPC #3",
         isCovid: false,
-        category: "M"
+        category: "M",
       },
-      "EDES123": {
+      EDES123: {
         type: "Health",
         title: "Total Deaths. All Causes",
         isCovid: false,
-        category: "M"
+        category: "M",
       },
-      "CumulativeCases": {
+      CumulativeCases: {
         type: "Health",
-        title:  "Cumulative Cases",
+        title: "Cumulative Cases",
         isCovid: true,
-        category: "D"
+        category: "D",
       },
-      "EMN37": {
+      EMN37: {
         type: "Sociodemographic",
         title: "Nacimientos",
         isCovid: false,
         category: "M",
-      }
+      },
     },
   },
   Andalucia: {
     id: 5,
     name: "Andalucia",
     codes: {
-      "IPC255678" : {
+      IPC255678: {
         type: "Economic",
         title: "Indice IPC #1",
         isCovid: false,
-        category: "M"
+        category: "M",
       },
-      "IPC255894" : {
+      IPC255894: {
         type: "Economic",
         title: "Indice IPC #3",
         isCovid: false,
-        category: "M"
+        category: "M",
       },
-      "EDES123": {
+      EDES123: {
         type: "Health",
         title: "Total Deaths. All Causes",
         isCovid: false,
-        category: "M"
+        category: "M",
       },
-      "CumulativeCases": {
+      CumulativeCases: {
         type: "Health",
-        title:  "Cumulative Cases",
+        title: "Cumulative Cases",
         isCovid: true,
-        category: "D"
+        category: "D",
       },
-      "EMN37": {
+      EMN37: {
         type: "Sociodemographic",
         title: "Nacimientos",
         isCovid: false,
         category: "M",
-      }
+      },
     },
-  }
+  },
 };
 
 export { API_INFO };

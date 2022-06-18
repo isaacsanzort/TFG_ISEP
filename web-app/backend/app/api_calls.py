@@ -2,7 +2,7 @@ from app import app
 from .algorithm import *
 from .geoJSON import *
 from flask import Response
-from flask import request
+from flask import request as r
 
 
 
@@ -29,8 +29,7 @@ def recentCovidInfo(cod, region):
 def getMap():
     return peninsula
 
-@app.route('/flask_api/corr', methods=['POST'])
+@app.route('/flask_api/corr', methods=['GET','POST'])
 def corr():
-    jsona = request.json
-    print(jsona)
-    return json.dumps({'x':23333})
+    corr_dict = getCorr(r.json)
+    return json.dumps(corr_dict)

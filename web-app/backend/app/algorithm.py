@@ -1,6 +1,7 @@
 import requests, json
 import pandas as pd
 from datetime import datetime
+from scipy import stats
 
 API_INE_MAIN_URL = "https://servicios.ine.es/wstempus/js/EN/DATOS_SERIE/"
 API_COVID_MAIN_URL = "https://raw.githubusercontent.com/isaacsanzort/ISEP_EP_COVID_Data/main/"
@@ -90,3 +91,49 @@ def getRecentCovidInfo(cod, region):
     url = generate_covid_url(cod)
     json_response = getLastCovidRecord(url, region)
     return json_response
+
+
+#Correlation
+def getCorrDataframe(data,valueColumnName):
+  dates = [i['x'] for i in data]
+  values = [float(i['y']) for i in data]
+  data = {
+      'Dates':dates,
+      valueColumnName:values
+  }
+
+  df = pd.DataFrame(data)
+  df['Dates'] = pd.to_datetime(df['Dates'], format='%Y-%m-%d')
+
+  return df
+
+def getCorrDict(df1,df2):
+    union_df = df1.join(df2.set_index('Dates'),
+                 on='Dates',
+                 how='inner')
+    #Removes rows that have Nan values
+    union_df.dropna(inplace=True)
+    
+    #Pearson Corr
+    pearson_corr, pearson_p_value = stats.pearsonr(union_df['Values1'],union_df['Values2'])
+    #Spearman Corr
+    spearman_corr, spearman_p_value = stats.spearmanr(union_df['Values1'],union_df['Values2'])
+
+    return {
+        'Pearson' :{
+            'corr': pearson_corr,
+            'p_value': pearson_p_value
+        },
+        'Spearman' :{
+            'corr': spearman_corr,
+            'p_value': spearman_p_value
+        },
+    }
+
+def getCorr(data):
+    data_1= data['data']['data1']
+    data_2= data['data']['data2']
+    df1 = getCorrDataframe(data_1, 'Values1')
+    df2 = getCorrDataframe(data_2, 'Values2')
+    dict = getCorrDict(df1,df2)
+    return dict
