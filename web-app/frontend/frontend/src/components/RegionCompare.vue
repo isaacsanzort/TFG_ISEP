@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-around">
-        <div class="col-9">
+        <div id='compareregion' class="col-9">
           <download-graph
             :idChart="'compareregionChart'"
             :chart="chart"
@@ -152,5 +152,11 @@ export default {
 p {
   font-weight: bold;
   align-self: center;
+}
+
+#compareregion {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
 }
 </style>

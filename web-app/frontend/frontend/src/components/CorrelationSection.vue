@@ -24,6 +24,7 @@
 </template>
 <script>
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import sharedLogic from "../assets/js/sharedLogic";
 
 export default {
   props: {
@@ -39,26 +40,19 @@ export default {
       showCorrData: false,
     };
   },
+  mixins: [sharedLogic],
   methods: {
     async fetchCorrData(body) {
-      let data = "";
-      try {
-        const getResponse = await fetch(
-          "http://127.0.0.1:5000/flask_api/corr",
-          {
-            method: "POST",
-            body: JSON.stringify(body),
-            headers: {
-              "Content-type": "application/json; charset=UTF-8",
-            },
-          }
-        );
-        const gObject = await getResponse.json();
-        data = gObject;
-      } catch (e) {
-        console.log(e);
-      }
-
+      let bodyUrl =  {
+                        method: "POST",
+                        body: JSON.stringify(body),
+                        headers: {
+                          "Content-type": "application/json; charset=UTF-8",
+                        },
+                      };
+      let url = "flask_api/corr";
+      let data = await this.fetchCorr(url,bodyUrl);
+       
       return data;
     },
     //This method only for CompareView, for CompareRegion much easier

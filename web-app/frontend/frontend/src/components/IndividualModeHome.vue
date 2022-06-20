@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-12 px-0 mb-5">
-    <spain-map @region="(region) => (selectedRegion = region)" />
-    <div id="more-stats" class="mt-3">
+    <spain-map @region="(region) => (selectedRegion = region)" @showData="(isShown) => (showMainInfo = isShown)"/>
+    <div id="more-stats" class="mt-3" v-show="showMainInfo">
       <h3 class="mt-2">More Information on: {{selectedRegion}}</h3>
       <div class="mt-3 mb-4">
         <p class="info-instr mb-0"><b>1. Specify a date range if you want:</b></p>
@@ -68,6 +68,7 @@ export default {
       endDate: null,
       maxEndDate: null,
       selectedRegion: "España",
+      showMainInfo: false,
       indivText:
         'In this mode, all the data of the region is displayed sorted into categories',
       compRegionText:
@@ -98,7 +99,6 @@ export default {
   },
   watch: {
     selectedRegion() {
-      console.log("hoal");
       console.log(this.selectedRegion);
     },
   },

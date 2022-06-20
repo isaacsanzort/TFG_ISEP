@@ -24,22 +24,4 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-.indiv-chart{
-  border: 1px double black;
-  border-radius: 5px;
-  padding: 5px;
-}
 </style>

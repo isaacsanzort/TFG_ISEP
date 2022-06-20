@@ -16,7 +16,6 @@ export default {
       // }
 
       return (
-        server +
         api_name +
         "/" +
         code +
@@ -58,12 +57,24 @@ export default {
       }
       return dates;
     },
+    async fetchUrl(url){
+      url = server + url;
+      url = encodeURI(url);
+      let gObject = {};
+      try{
+        //API call
+        const getResponse = await fetch(url);
+        gObject = await getResponse.json();
+      } catch (e) {
+        console.log(e)
+      }
+
+      return gObject
+    },
     async fetchData(url) {
       let data = [];
       try {
-        //Peticion API
-        const getResponse = await fetch(url);
-        const gObject = await getResponse.json();
+        const gObject = await this.fetchUrl(url);
         //Asignamos el valor (ejeY y ejeX)
         data = gObject.Value;
       } catch (e) {
@@ -71,5 +82,19 @@ export default {
       }
       return data;
     },
+    async fetchCorr(url,body){
+      let data = "";
+      url = server + url;
+      url = encodeURI(url);
+      try {
+        const getResponse = await fetch(url,body);
+        const gObject = await getResponse.json();
+        data = gObject;
+      } catch (e) {
+        console.log(e);
+      }
+
+      return data;
+    }
   },
 };

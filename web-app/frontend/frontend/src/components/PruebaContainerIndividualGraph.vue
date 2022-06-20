@@ -82,4 +82,11 @@ export default {
   },
 };
 </script>
+<style scoped>
+  .indiv-chart{
+    border: 1px double black;
+    border-radius: 5px;
+    padding: 5px;
+  }
+</style>
 

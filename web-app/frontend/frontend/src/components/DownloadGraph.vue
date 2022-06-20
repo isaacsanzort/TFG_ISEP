@@ -60,7 +60,7 @@ export default {
         multiplier: 2,
       });
       /*get download button (tag: <a></a>) */
-      var a = document.getElementById("download");
+      var a = document.getElementById(type);
       /*insert chart image url to download button (tag: <a></a>) */
       a.href = url_base64jp;
     },
