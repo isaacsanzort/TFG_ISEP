@@ -5,13 +5,14 @@
         Compare Data graph for {{ this.$route.params.id }}
       </h3>
     </div>
-    <div class="col-12 mt-3 row">
+    <div id="compare-section" class="col-12 mt-3 row">
       <div class="col-md-3">
         <data-checkbox
+          class="data-checkbox h-75"
           @checkedValues="(checked) => (checkedValues = checked)"
         />
       </div>
-      <div id="graph" class="col-md-6 indiv-chart">
+      <div id="graph" class="col-md-6 h-75 indiv-chart">
         <download-graph
           :idChart="idChart"
           :chart="chart"
@@ -124,9 +125,17 @@ export default {
 };
 </script>
 <style scoped>
-.indiv-chart{
+.indiv-chart {
   border: 1px double black;
   border-radius: 5px;
   padding: 5px;
+}
+
+.data-checkbox{
+  overflow: auto;
+}
+
+#compare-section{
+  max-height: 10px;
 }
 </style>

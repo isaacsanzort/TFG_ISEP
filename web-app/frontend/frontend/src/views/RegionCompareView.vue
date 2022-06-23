@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-around">
-        <div id='compareregion' class="col-9">
+        <div id="compareregion" class="col-9">
           <download-graph
             :idChart="'compareregionChart'"
             :chart="chart"
@@ -49,7 +49,7 @@ import LineChart from "../components/LineChart.vue";
 import { API_INFO } from "../assets/js/global.js";
 import DataSelect from "../components/DataSelect.vue";
 import sharedLogic from "../assets/js/sharedLogic.js";
-import DownloadGraph from "./DownloadGraph.vue";
+import DownloadGraph from "../components/DownloadGraph.vue";
 
 export default {
   data() {
@@ -74,7 +74,6 @@ export default {
   mixins: [sharedLogic],
   methods: {
     async getChartData(code, color, isCovid, region = "") {
-      
       if (!isCovid) {
         region = "";
       }
@@ -82,7 +81,7 @@ export default {
       let data = await this.fetchData(url);
 
       let label = this.region;
-      if(color == "red"){
+      if (color == "red") {
         label = this.selectedRegion;
       }
 

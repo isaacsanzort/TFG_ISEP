@@ -24,7 +24,7 @@ export default {
     },
     text: {
       type: String,
-    }
+    },
   },
   emits: ["chart"],
   mounted() {

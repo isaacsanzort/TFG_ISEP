@@ -53,7 +53,6 @@ def generate_covid_json_response(url, region, start_date, end_date):
             'x' : date,
             'y' : data[i]
         })
-
     return {
         'Value' : values
     }
@@ -76,13 +75,13 @@ def api_covid(cod, region, start_date, end_date):
 
 def getLastCovidRecord(url, region):
     df = pd.read_csv(url)
+    print(url)
     df["Fecha"] = pd.to_datetime(df["Fecha"], format='%d/%m/%Y')
     recentRecord = df.loc[df["Fecha"].argmax(),['Fecha', region]]   # returns a Series
     values = {
         'Date' : recentRecord['Fecha'].strftime('%Y-%m-%d'),
         'Value' : str(recentRecord[region])
     }
-    print(values)
     return {
         'Value' : values
     }

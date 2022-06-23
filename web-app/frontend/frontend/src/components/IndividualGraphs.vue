@@ -1,6 +1,6 @@
 <template>
   <div class="row justify-content-center">
-    <prueba-individual
+    <individual-graph-wrapper
       v-for="i in data_region"
       :key="i"
       :url="getUrl(i, '', region_codes[i].isCovid)"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import PruebaIndividual from "./PruebaContainerIndividualGraph.vue";
+import IndividualGraphWrapper from "./IndividualGraphWrapper.vue";
 import { API_INFO } from "../assets/js/global.js";
 import sharedLogic from "../assets/js/sharedLogic.js";
 
@@ -38,13 +38,13 @@ export default {
     },
   },
   components: {
-    PruebaIndividual,
+    IndividualGraphWrapper,
   },
   mixins: [sharedLogic], //This is being used in :url="getUrl(i)"
 };
 </script>
 <style scoped>
-.indiv-chart{
+.indiv-chart {
   border: 1px double black;
   border-radius: 5px;
   padding: 5px;

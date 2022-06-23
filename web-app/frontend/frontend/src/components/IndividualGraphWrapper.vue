@@ -39,7 +39,7 @@ export default {
     },
     label: {
       type: String,
-    }
+    },
   },
   data() {
     return {
@@ -63,7 +63,7 @@ export default {
           {
             label: this.label,
             data: chartData,
-            borderColor: 'blue',
+            borderColor: "blue",
           },
         ];
         //renderizamos el componente
@@ -83,10 +83,9 @@ export default {
 };
 </script>
 <style scoped>
-  .indiv-chart{
-    border: 1px double black;
-    border-radius: 5px;
-    padding: 5px;
-  }
+.indiv-chart {
+  border: 1px double black;
+  border-radius: 5px;
+  padding: 5px;
+}
 </style>
-

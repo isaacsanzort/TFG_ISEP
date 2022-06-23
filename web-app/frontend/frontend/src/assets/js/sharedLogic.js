@@ -15,16 +15,7 @@ export default {
       //   region = "/" + region;
       // }
 
-      return (
-        api_name +
-        "/" +
-        code +
-        "/" +
-        startDate +
-        "/" +
-        endDate +
-        region
-      );
+      return api_name + "/" + code + "/" + startDate + "/" + endDate + region;
     },
     generateDateRange() {
       const startDate = this.$route.params.startDate;
@@ -57,19 +48,19 @@ export default {
       }
       return dates;
     },
-    async fetchUrl(url){
+    async fetchUrl(url) {
       url = server + url;
       url = encodeURI(url);
       let gObject = {};
-      try{
+      try {
         //API call
         const getResponse = await fetch(url);
         gObject = await getResponse.json();
       } catch (e) {
-        console.log(e)
+        console.log(e);
       }
 
-      return gObject
+      return gObject;
     },
     async fetchData(url) {
       let data = [];
@@ -82,12 +73,12 @@ export default {
       }
       return data;
     },
-    async fetchCorr(url,body){
+    async fetchCorr(url, body) {
       let data = "";
       url = server + url;
       url = encodeURI(url);
       try {
-        const getResponse = await fetch(url,body);
+        const getResponse = await fetch(url, body);
         const gObject = await getResponse.json();
         data = gObject;
       } catch (e) {
@@ -95,6 +86,6 @@ export default {
       }
 
       return data;
-    }
+    },
   },
 };

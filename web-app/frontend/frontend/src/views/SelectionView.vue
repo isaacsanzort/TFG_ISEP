@@ -1,17 +1,17 @@
 <template>
   <div class="container-fluid">
     <div class="align-items-center mt-2">
-      <individual-mode-home />
+      <main-menu />
     </div>
   </div>
 </template>
 
 <script>
-import IndividualModeHome from "../components/IndividualModeHome.vue";
+import MainMenu from "../components/MainMenu.vue";
 
 export default {
   components: {
-    IndividualModeHome,
+    MainMenu,
   },
 };
 </script>

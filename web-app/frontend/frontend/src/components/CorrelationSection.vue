@@ -1,29 +1,40 @@
 <template>
   <div class="card">
     <div class="card-body">
-        <div v-if="showCorrData">
-            <p> <b>Pearson</b> coefficient: </p>
-            <span>{{pearsonCorr}}</span>
-            <p class="p-value">Two-tailed p-value (Pearson):  </p>
-            <span>{{pearsonPValue}}</span>
-            <p> <b>Spearman</b> coefficient: </p>
-            <span>{{spearmanCorr}}</span>
-            <p class="p-value">Two-tailed p-value (Spearman):  </p>
-            <span>{{spearmanPValue}}</span>
-            <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-primary" @click="showCorrData = false">Calculate other</button>
-            </div>
+      <div v-if="showCorrData">
+        <p><b>Pearson</b> coefficient:</p>
+        <span>{{ pearsonCorr }}</span>
+        <p class="p-value">Two-tailed p-value (Pearson):</p>
+        <span>{{ pearsonPValue }}</span>
+        <p><b>Spearman</b> coefficient:</p>
+        <span>{{ spearmanCorr }}</span>
+        <p class="p-value">Two-tailed p-value (Spearman):</p>
+        <span>{{ spearmanPValue }}</span>
+        <div class="d-flex justify-content-center">
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="showCorrData = false"
+          >
+            Calculate other
+          </button>
         </div>
-        <div v-else>
-            <h4 id="corr">Correlation</h4>
-            <p class="corr-info">The Pearson and Spearman correlation coefficient will be calculated when 2 variables with the same periodicity are selected.</p>
-            <button type="button" class="btn btn-primary" @click="getCorr">Calculate</button>
-        </div>
+      </div>
+      <div v-else>
+        <h4 id="corr">Correlation</h4>
+        <p class="corr-info">
+          The Pearson and Spearman correlation coefficient will be calculated
+          when 2 variables with the same periodicity are selected.
+        </p>
+        <button type="button" class="btn btn-primary" @click="getCorr">
+          Calculate
+        </button>
+      </div>
     </div>
   </div>
 </template>
 <script>
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 import sharedLogic from "../assets/js/sharedLogic";
 
 export default {
@@ -43,16 +54,16 @@ export default {
   mixins: [sharedLogic],
   methods: {
     async fetchCorrData(body) {
-      let bodyUrl =  {
-                        method: "POST",
-                        body: JSON.stringify(body),
-                        headers: {
-                          "Content-type": "application/json; charset=UTF-8",
-                        },
-                      };
+      let bodyUrl = {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      };
       let url = "flask_api/corr";
-      let data = await this.fetchCorr(url,bodyUrl);
-       
+      let data = await this.fetchCorr(url, bodyUrl);
+
       return data;
     },
     //This method only for CompareView, for CompareRegion much easier
@@ -74,38 +85,37 @@ export default {
         this.spearmanCorr = corr_data["Spearman"].corr;
         this.spearmanPValue = corr_data["Spearman"].p_value;
         this.showCorrData = true;
-      }else{
-        alert('Follow instructions');
+      } else {
+        alert("Follow instructions");
       }
     },
   },
-  goToCorrInfo(){
+  goToCorrInfo() {
     this.showCorrData = false;
-  }
+  },
 };
 </script>
 <style scoped>
 p {
-    margin-bottom: 1vh;
-    text-align: left;
+  margin-bottom: 1vh;
+  text-align: left;
 }
 span {
-    border-style: solid;
-    border-radius: 5px;
-    border-width: 2px;
-    display: inline-block;
-    margin-bottom: 2vh;
-    min-height: 2.2rem;
-    min-width: 40%;
-    padding: 1vh 3vh;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 2px;
+  display: inline-block;
+  margin-bottom: 2vh;
+  min-height: 2.2rem;
+  min-width: 40%;
+  padding: 1vh 3vh;
 }
 
-.corr-info{
-    text-align: center;
+.corr-info {
+  text-align: center;
 }
 
-.p-value{
-    font-size: 0.8rem;
+.p-value {
+  font-size: 0.8rem;
 }
-
 </style>

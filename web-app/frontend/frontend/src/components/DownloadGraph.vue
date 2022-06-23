@@ -1,31 +1,81 @@
 <template>
   <div class="row">
-      <div class="col-8 d-flex justify-content-start">
-        <div class="btn-group  me-3" role="group">
-            <button id="btnGroup" type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-download"></i> Image</button>
-            <ul class="dropdown-menu" aria-labelledby="btnGroup">
-                <li><a id="png" download="ChartImage.png" class="dropdown-item" @click="downloadChart('png')" href="#">as .png file</a></li>
-                <li><a id="jpg" download="ChartImage.jpg" class="dropdown-item" @click="downloadChart('jpg')" href="#">as .jpg file</a></li>
-            </ul>
-        </div>
-        <div class="btn-group" role="group">
-            <button id="btnGroup" type="button" class="btn btn-sm btn-success dropdown-toggle" data-bs-toggle="dropdown"><i class="bi bi-download"></i> Data</button>
-            <ul class="dropdown-menu" aria-labelledby="btnGroup">
-                <li><a class="dropdown-item" href="#" @click="downloadCsv">as .csv file</a></li>
-                <li><a class="dropdown-item" href="#" @click="downloadJSON">as .json file</a></li>
-                <li><a class="dropdown-item" href="#" @click="downloadXML">as .xml file</a></li>
-            </ul>
-        </div>
+    <div class="col-8 d-flex justify-content-start">
+      <div class="btn-group me-3" role="group">
+        <button
+          id="btnGroup"
+          type="button"
+          class="btn btn-sm btn-success dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
+          <i class="bi bi-download"></i> Image
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroup">
+          <li>
+            <a
+              id="png"
+              download="ChartImage.png"
+              class="dropdown-item"
+              @click="downloadChart('png')"
+              href="#"
+              >as .png file</a
+            >
+          </li>
+          <li>
+            <a
+              id="jpg"
+              download="ChartImage.jpg"
+              class="dropdown-item"
+              @click="downloadChart('jpg')"
+              href="#"
+              >as .jpg file</a
+            >
+          </li>
+        </ul>
       </div>
-      <div class="col-4">
-        <button type="button" class="btn btn-sm btn-secondary" @click="resetZoomChart">Reset zoom</button>
+      <div class="btn-group" role="group">
+        <button
+          id="btnGroup"
+          type="button"
+          class="btn btn-sm btn-success dropdown-toggle"
+          data-bs-toggle="dropdown"
+        >
+          <i class="bi bi-download"></i> Data
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="btnGroup">
+          <li>
+            <a class="dropdown-item" href="#" @click="downloadCsv"
+              >as .csv file</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" @click="downloadJSON"
+              >as .json file</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" href="#" @click="downloadXML"
+              >as .xml file</a
+            >
+          </li>
+        </ul>
       </div>
+    </div>
+    <div class="col-4">
+      <button
+        type="button"
+        class="btn btn-sm btn-secondary"
+        @click="resetZoomChart"
+      >
+        Reset zoom
+      </button>
+    </div>
   </div>
 </template>
 
 <script>
 import { toXML } from "jstoxml";
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default {
   props: {
@@ -43,7 +93,7 @@ export default {
     },
     chart: {
       type: Object,
-    }
+    },
   },
   data() {
     return {
@@ -192,7 +242,7 @@ export default {
       ].join(":");
       anchor.click();
     },
-    resetZoomChart(){
+    resetZoomChart() {
       this.chart.resetZoom();
     },
   },

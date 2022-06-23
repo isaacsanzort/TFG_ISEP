@@ -1,9 +1,9 @@
 <template>
   <div>
     <div>
-        <router-link :to="getUrl()" class="btn btn-outline-success"
-          ><slot></slot
-        ></router-link>
+      <router-link :to="getUrl()" class="btn btn-outline-success"
+        ><slot></slot
+      ></router-link>
     </div>
   </div>
 </template>

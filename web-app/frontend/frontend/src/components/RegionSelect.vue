@@ -5,7 +5,9 @@
       aria-label="Select CCAA"
       v-model="selectedRegion"
     >
-      <option selected :value="null" disabled><span>-- Select a region --</span></option>
+      <option selected :value="null" disabled>
+        <span>-- Select a region --</span>
+      </option>
       <option v-for="region in regions" :value="region.name" :key="region.id">
         {{ region.name }}
       </option>
@@ -53,7 +55,7 @@ export default {
 };
 </script>
 <style scoped>
-span{
+span {
   color: gray;
 }
 </style>

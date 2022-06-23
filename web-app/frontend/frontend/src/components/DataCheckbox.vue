@@ -104,4 +104,10 @@ export default {
 p {
   font-weight: bold;
 }
+label {
+  text-align: initial;
+}
+.form-check-input{
+  min-width: 30px;
+}
 </style>
