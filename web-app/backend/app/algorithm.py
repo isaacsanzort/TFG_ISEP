@@ -107,11 +107,13 @@ def getCorrDataframe(data,valueColumnName):
   return df
 
 def getCorrDict(df1,df2):
-    union_df = df1.join(df2.set_index('Dates'),
-                 on='Dates',
-                 how='inner')
-    #Removes rows that have Nan values
-    union_df.dropna(inplace=True)
+    union_df = df1.merge(df2, 
+                    how='outer', 
+                    left_on='Dates', 
+                    right_on='Dates', 
+                    sort=True)
+    #NaN values are set linearly respect to the nearest value (interpolation with nearest values) so we can corr all data.
+    union_df[['Values1','Values2']] = union_df[['Values1','Values2']].interpolate(method='linear', limit_direction='both', axis=0)
     
     #Pearson Corr
     pearson_corr, pearson_p_value = stats.pearsonr(union_df['Values1'],union_df['Values2'])

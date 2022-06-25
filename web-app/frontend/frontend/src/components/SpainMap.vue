@@ -40,25 +40,38 @@
               </div>
               <div v-if="selectedOption == 2">
                 <div class="info">
-                  <p class="mb-0"><b>{{dosesAdministered}}</b></p>
+                  <p class="mb-0">
+                    <b>{{ dosesAdministered }}</b>
+                  </p>
                   <p class="detail-info mb-0">Vaccine doses administeres</p>
                 </div>
                 <div class="info mt-3">
-                  <p class="mb-0"><b>{{completedVaccinated}}</b></p>
+                  <p class="mb-0">
+                    <b>{{ completedVaccinated }}</b>
+                  </p>
                   <p class="detail-info mb-0">Fully vaccinated people</p>
                 </div>
                 <div class="info mt-3">
-                  <p class="mb-0"><b>{{percentageVaccinated}}</b>%</p>
-                  <p class="detail-info mb-0">Percentage of fully vaccinated people</p>
+                  <p class="mb-0">
+                    <b>{{ percentageVaccinated }}</b
+                    >%
+                  </p>
+                  <p class="detail-info mb-0">
+                    Percentage of fully vaccinated people
+                  </p>
                 </div>
               </div>
               <div v-if="selectedOption == 3">
                 <div class="info">
-                  <p class="mb-0"><b>{{cumulativeDeaths}}</b></p>
+                  <p class="mb-0">
+                    <b>{{ cumulativeDeaths }}</b>
+                  </p>
                   <p class="detail-info mb-0">Cumulative deaths</p>
                 </div>
                 <div class="info mt-3">
-                  <p class="mb-0"><b>{{dailyDeaths}}</b></p>
+                  <p class="mb-0">
+                    <b>{{ dailyDeaths }}</b>
+                  </p>
                   <p class="detail-info mb-0">Deaths today</p>
                 </div>
               </div>
@@ -98,8 +111,8 @@ export default {
       dailyCases: null,
       dailyDeaths: null,
       dosesAdministered: null,
-      completedVaccinated:null,
-      percentageVaccinated:null,
+      completedVaccinated: null,
+      percentageVaccinated: null,
       recentDate: null,
       selectedData: null,
       showMainData: false,
@@ -118,8 +131,8 @@ export default {
     },
 
     //Display number with dot notation e.g 10000 -> 10.000
-    formatNumber(num){
-      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    formatNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     },
 
     async updateCardValues(region_api_name, region_name) {
@@ -132,22 +145,34 @@ export default {
       );
       let dailyCases = await this.getCovidData("DailyCases", region_api_name);
       this.recentDate = cumulativeCases.Date;
-      this.cumulativeCases = this.formatNumber(cumulativeCases.Value)
+      this.cumulativeCases = this.formatNumber(cumulativeCases.Value);
       this.dailyCases = this.formatNumber(dailyCases.Value);
 
       //Deaths
-      let cumulativeDeaths = await this.getCovidData("CumulativeDeaths",region_api_name);
-      let dailyDeaths = await this.getCovidData("DailyDeaths",region_api_name);
+      let cumulativeDeaths = await this.getCovidData(
+        "CumulativeDeaths",
+        region_api_name
+      );
+      let dailyDeaths = await this.getCovidData("DailyDeaths", region_api_name);
       this.cumulativeDeaths = this.formatNumber(cumulativeDeaths.Value);
       this.dailyDeaths = this.formatNumber(dailyDeaths.Value);
 
       //Vaccination
-      let dosesAdministered = await this.getCovidData("DosesAdministered", region_api_name);
-      let completedVaccinated = await this.getCovidData("CompletedVaccinated", region_api_name);
-      let percentageVaccinated = await this.getCovidData("PercentageCompletedVaccinated", region_api_name);
+      let dosesAdministered = await this.getCovidData(
+        "DosesAdministered",
+        region_api_name
+      );
+      let completedVaccinated = await this.getCovidData(
+        "CompletedVaccinated",
+        region_api_name
+      );
+      let percentageVaccinated = await this.getCovidData(
+        "PercentageCompletedVaccinated",
+        region_api_name
+      );
       this.dosesAdministered = this.formatNumber(dosesAdministered.Value);
       this.completedVaccinated = this.formatNumber(completedVaccinated.Value);
-      this.percentageVaccinated = percentageVaccinated.Value;
+      this.percentageVaccinated = percentageVaccinated.Value.replace(".", ",");
     },
 
     setMapLayout() {
@@ -343,5 +368,4 @@ p:first-child {
   width: 100%; /* It will occupy the 100% width of the col assigned*/
   height: 80vh;
 }
-
 </style>

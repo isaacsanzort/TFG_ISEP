@@ -110,14 +110,15 @@ export default {
   updated() {
     //To make sure you can only calculate correlation for 2 variables
     if (Object.keys(this.chartData).length == 2) {
+      this.isCorrelatable = true;
       //checks if variables have the same frequency (i.e data is monthly,daily,annually... given) for correlation purposes
-      let [code_feature_1, code_feature_2] = this.checkedValues;
-      if (
-        this.region_codes[code_feature_1].category ==
-        this.region_codes[code_feature_2].category
-      ) {
-        this.isCorrelatable = true;
-      }
+      // let [code_feature_1, code_feature_2] = this.checkedValues;
+      // if (
+      //   this.region_codes[code_feature_1].category ==
+      //   this.region_codes[code_feature_2].category
+      // ) {
+      //   this.isCorrelatable = true;
+      // }
     } else {
       this.isCorrelatable = false;
     }
@@ -131,11 +132,11 @@ export default {
   padding: 5px;
 }
 
-.data-checkbox{
+.data-checkbox {
   overflow: auto;
 }
 
-#compare-section{
+#compare-section {
   max-height: 10px;
 }
 </style>

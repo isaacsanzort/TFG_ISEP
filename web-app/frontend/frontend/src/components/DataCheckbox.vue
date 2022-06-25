@@ -107,7 +107,7 @@ p {
 label {
   text-align: initial;
 }
-.form-check-input{
+.form-check-input {
   min-width: 30px;
 }
 </style>

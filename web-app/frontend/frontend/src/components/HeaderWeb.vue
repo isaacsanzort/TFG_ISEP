@@ -8,8 +8,8 @@
   </nav>
 </template>
 <style scoped>
-span{
+span {
   color: white;
-  font-weight: bold ;
+  font-weight: bold;
 }
 </style>

@@ -86,7 +86,7 @@ export default {
         this.spearmanPValue = corr_data["Spearman"].p_value;
         this.showCorrData = true;
       } else {
-        alert("Follow instructions");
+        alert("Only select two Features");
       }
     },
   },

@@ -1,6 +1,7 @@
 <template>
   <div class="row justify-content-center">
     <individual-graph-wrapper
+      class="mb-2"
       v-for="i in data_region"
       :key="i"
       :url="getUrl(i, '', region_codes[i].isCovid)"
