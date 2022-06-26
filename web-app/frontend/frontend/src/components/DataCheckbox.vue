@@ -14,7 +14,7 @@
         v-model="checkedValues"
       />
       <label class="form-check-label ms-2" :for="key">{{
-        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
+        region_codes[key].title
       }}</label>
     </div>
 
@@ -32,7 +32,7 @@
         v-model="checkedValues"
       />
       <label class="form-check-label ms-2" :for="key">{{
-        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
+        region_codes[key].title
       }}</label>
     </div>
 
@@ -50,7 +50,7 @@
         v-model="checkedValues"
       />
       <label class="form-check-label ms-2" :for="key">{{
-        region_codes[key].title + " " + "(" + region_codes[key].category + ")"
+        region_codes[key].title
       }}</label>
     </div>
   </div>

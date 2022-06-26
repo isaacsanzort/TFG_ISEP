@@ -4,6 +4,72 @@ const API_INFO = {
     id: 0,
     name: "España",
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN39: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -142,6 +208,72 @@ const API_INFO = {
   "Andalucia": {
     id: 5,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN37: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -262,6 +394,72 @@ const API_INFO = {
   "Aragon": {
     id: 2,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN35: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -376,6 +574,72 @@ const API_INFO = {
   "Principado de Asturias": {
     id: 3,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN33: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -490,6 +754,72 @@ const API_INFO = {
   "Illes Balears": {
     id: 4,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN31: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -610,6 +940,72 @@ const API_INFO = {
   "Canarias": {
     id: 5,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN29: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -730,6 +1126,72 @@ const API_INFO = {
   "Cantabria": {
     id: 6,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN27: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -844,6 +1306,72 @@ const API_INFO = {
   "Castilla y Leon": {
     id: 7,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN23: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -958,6 +1486,72 @@ const API_INFO = {
   "Castilla-La Mancha": {
     id: 8,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN25: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1072,6 +1666,72 @@ const API_INFO = {
   "Cataluña": {
     id: 9,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN21: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1192,6 +1852,72 @@ const API_INFO = {
   "Comunitat Valenciana": {
     id: 10,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN19: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1312,6 +2038,72 @@ const API_INFO = {
   "Extremadura": {
     id: 11,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN17: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1426,6 +2218,72 @@ const API_INFO = {
   "Galicia": {
     id: 12,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN15: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1540,6 +2398,72 @@ const API_INFO = {
   "Comunidad de Madrid": {
     id: 13,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN13: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1660,6 +2584,72 @@ const API_INFO = {
   "Region de Murcia": {
     id: 14,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN11: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1774,6 +2764,72 @@ const API_INFO = {
   "Comunidad Foral de Navarra": {
     id: 15,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN9: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -1888,6 +2944,72 @@ const API_INFO = {
   "Pais Vasco": {
     id: 16,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN7: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -2002,6 +3124,72 @@ const API_INFO = {
   "La Rioja": {
     id: 17,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN5: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -2116,6 +3304,72 @@ const API_INFO = {
   "Ceuta": {
     id: 18,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN3: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -2200,6 +3454,72 @@ const API_INFO = {
   "Melilla": {
     id: 19,
     codes: {
+      ICUOccupancy: {
+        type: "Health",
+        title: "Percentage of occupied ICU beds",
+        isCovid: true,
+        category: "D",
+      },
+      HospitalOccupancy: {
+      type: "Health",
+        title: "Percentage of occupied hospital beds",
+        isCovid: true,
+        category: "D",
+      },
+      DailyICU: {
+        type: "Health",
+        title: "Daily COVID-19 patiens transferred to ICU",
+        isCovid: true,
+        category: "D",
+      },
+      DailyHospitalized: {
+          type: "Health",
+          title: "Daily hospitalized COVID-19 patiens",
+          isCovid: true,
+          category: "D",
+      },
+      CompletedVaccinated: {
+        type: "Health",
+        title: "Total Vaccinated people",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeCases: {
+        type: "Health",
+        title: "Cumulative Cases",
+        isCovid: true,
+        category: "D",
+      },
+      CumulativeDeaths: {
+        type: "Health",
+        title: "Cumulative Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DailyCases: {
+        type: "Health",
+        title: "Daily Cases",
+        isCovid: true,
+        category: "D",
+      },
+      DailyDeaths: {
+        type: "Health",
+        title: "Daily Deaths",
+        isCovid: true,
+        category: "D",
+      },
+      DosesAdministered: {
+        type: "Health",
+        title: "Doses Administered",
+        isCovid: true,
+        category: "D",
+      },
+      PercentageCompletedVaccinated: {
+        type: "Health",
+        title: "Percentage of people fully vaccinated (2 dosis)",
+        isCovid: true,
+        category: "D",
+      },
       EMN1: {
         type: "Sociodemographic",
         title: "Births (People)",
@@ -2284,7 +3604,31 @@ const API_INFO = {
 };
 
 export { API_INFO };
+// UCIOccupancy: {
+//   type: "Health",
+//   title: "Percentage of occupied ICU beds",
+//   isCovid: true,
+//   category: "D",
+// },
+// HospitalOccupancy: {
+// type: "Health",
+//   title: "Percentage of occupied hospital beds",
+//   isCovid: true,
+//   category: "D",
+// },
 
+// DailyICU: {
+//   type: "Health",
+//   title: "Daily COVID-19 patiens transferred to ICU",
+//   isCovid: true,
+//   category: "D",
+// },
+// DailyHospitalized: {
+//     type: "Health",
+//     title: "Daily hospitalized COVID-19 patiens",
+//     isCovid: true,
+//     category: "D",
+//   },
 // CompletedVaccinated: {
 //   type: "Health",
 //   title: "Total Vaccinated people",

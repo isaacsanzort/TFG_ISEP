@@ -8,11 +8,12 @@
     <div id="compare-section" class="col-12 mt-3 row">
       <div class="col-md-3">
         <data-checkbox
-          class="data-checkbox h-75"
+          id="check-list"
+          class="data-checkbox"
           @checkedValues="(checked) => (checkedValues = checked)"
         />
       </div>
-      <div id="graph" class="col-md-6 h-75 indiv-chart">
+      <div id="graph" class="col-md-6  indiv-chart">
         <download-graph
           :idChart="idChart"
           :chart="chart"
@@ -106,6 +107,7 @@ export default {
   },
   created() {
     this.chartLabel = this.generateDateRange();
+
   },
   updated() {
     //To make sure you can only calculate correlation for 2 variables
@@ -138,5 +140,11 @@ export default {
 
 #compare-section {
   max-height: 10px;
+}
+
+#check-list{
+  max-height: 22rem;
+  background-color: white;
+
 }
 </style>

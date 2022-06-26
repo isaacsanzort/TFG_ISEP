@@ -115,7 +115,6 @@ export default {
       a.href = url_base64jp;
     },
     dataCsv() {
-      console.log(this.otherRegion);
       const headers = ['"Date","Value","Region","Label"'];
       const csvRows = [];
       //To access dates (x) and values (y)
@@ -150,7 +149,6 @@ export default {
         }
       }
       let csv = csvRows.join("\n");
-      console.log(csv);
       return csv;
     },
     downloadCsv() {

@@ -71,7 +71,7 @@ import SpainMap from "./SpainMap.vue";
 export default {
   data() {
     return {
-      startDate: "2019-01-01", // Put COVID start as default date
+      startDate: "2020-03-11", // Put COVID start as default date %Y%M%D
       endDate: null,
       maxEndDate: null,
       selectedRegion: "España",
@@ -102,11 +102,6 @@ export default {
   created() {
     this.endDate = this.getMaxStartDate();
     this.maxEndDate = this.getMaxStartDate();
-  },
-  watch: {
-    selectedRegion() {
-      console.log(this.selectedRegion);
-    },
   },
 };
 </script>
