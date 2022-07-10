@@ -1,5 +1,5 @@
 from app import app
-from .algorithm import *
+from .model import *
 from .geoJSON import *
 from flask import Response
 from flask import request as r
