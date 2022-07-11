@@ -13,7 +13,7 @@
           @checkedValues="(checked) => (checkedValues = checked)"
         />
       </div>
-      <div id="graph" class="col-md-6  indiv-chart">
+      <div id="graph" class="col-md-6 indiv-chart">
         <download-graph
           :idChart="idChart"
           :chart="chart"
@@ -107,7 +107,6 @@ export default {
   },
   created() {
     this.chartLabel = this.generateDateRange();
-
   },
   updated() {
     //To make sure you can only calculate correlation for 2 variables
@@ -142,9 +141,8 @@ export default {
   max-height: 10px;
 }
 
-#check-list{
+#check-list {
   max-height: 22rem;
   background-color: white;
-
 }
 </style>

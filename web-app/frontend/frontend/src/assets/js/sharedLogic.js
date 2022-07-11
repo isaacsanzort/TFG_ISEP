@@ -52,7 +52,7 @@ export default {
       url = server + url;
       url = encodeURI(url);
       let gObject = {};
-      
+
       try {
         //API call
         const getResponse = await fetch(url);

@@ -1,6 +1,6 @@
 //category is D-->Daily, W-> Weekly S->Semestral, M->Monthly, Q->Quaterly A->Anual
 const API_INFO = {
-  "España": {
+  España: {
     id: 0,
     name: "España",
     codes: {
@@ -11,7 +11,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -23,10 +23,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -205,7 +205,7 @@ const API_INFO = {
       },
     },
   },
-  "Andalucia": {
+  Andalucia: {
     id: 5,
     codes: {
       ICUOccupancy: {
@@ -215,7 +215,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -227,10 +227,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -391,7 +391,7 @@ const API_INFO = {
       },
     },
   },
-  "Aragon": {
+  Aragon: {
     id: 2,
     codes: {
       ICUOccupancy: {
@@ -401,7 +401,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -413,10 +413,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -581,7 +581,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -593,10 +593,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -761,7 +761,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -773,10 +773,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -937,7 +937,7 @@ const API_INFO = {
       },
     },
   },
-  "Canarias": {
+  Canarias: {
     id: 5,
     codes: {
       ICUOccupancy: {
@@ -947,7 +947,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -959,10 +959,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -1123,7 +1123,7 @@ const API_INFO = {
       },
     },
   },
-  "Cantabria": {
+  Cantabria: {
     id: 6,
     codes: {
       ICUOccupancy: {
@@ -1133,7 +1133,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -1145,10 +1145,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -1313,7 +1313,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -1325,10 +1325,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -1493,7 +1493,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -1505,10 +1505,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -1663,7 +1663,7 @@ const API_INFO = {
       },
     },
   },
-  "Cataluña": {
+  Cataluña: {
     id: 9,
     codes: {
       ICUOccupancy: {
@@ -1673,7 +1673,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -1685,10 +1685,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -1859,7 +1859,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -1871,10 +1871,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2035,7 +2035,7 @@ const API_INFO = {
       },
     },
   },
-  "Extremadura": {
+  Extremadura: {
     id: 11,
     codes: {
       ICUOccupancy: {
@@ -2045,7 +2045,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2057,10 +2057,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2215,7 +2215,7 @@ const API_INFO = {
       },
     },
   },
-  "Galicia": {
+  Galicia: {
     id: 12,
     codes: {
       ICUOccupancy: {
@@ -2225,7 +2225,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2237,10 +2237,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2405,7 +2405,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2417,10 +2417,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2591,7 +2591,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2603,10 +2603,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2771,7 +2771,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2783,10 +2783,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -2951,7 +2951,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -2963,10 +2963,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -3131,7 +3131,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -3143,10 +3143,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -3301,7 +3301,7 @@ const API_INFO = {
       },
     },
   },
-  "Ceuta": {
+  Ceuta: {
     id: 18,
     codes: {
       ICUOccupancy: {
@@ -3311,7 +3311,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -3323,10 +3323,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",
@@ -3451,7 +3451,7 @@ const API_INFO = {
       },
     },
   },
-  "Melilla": {
+  Melilla: {
     id: 19,
     codes: {
       ICUOccupancy: {
@@ -3461,7 +3461,7 @@ const API_INFO = {
         category: "D",
       },
       HospitalOccupancy: {
-      type: "Health",
+        type: "Health",
         title: "Percentage of occupied hospital beds",
         isCovid: true,
         category: "D",
@@ -3473,10 +3473,10 @@ const API_INFO = {
         category: "D",
       },
       DailyHospitalized: {
-          type: "Health",
-          title: "Daily hospitalized COVID-19 patiens",
-          isCovid: true,
-          category: "D",
+        type: "Health",
+        title: "Daily hospitalized COVID-19 patiens",
+        isCovid: true,
+        category: "D",
       },
       CompletedVaccinated: {
         type: "Health",

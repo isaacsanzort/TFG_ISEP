@@ -24,8 +24,8 @@
         <h4 id="corr">Correlation</h4>
         <p class="corr-info">
           The Pearson and Spearman correlation coefficient will be calculated
-          for 2 variables. It is recommended that you use data with same time periodicity.
-          Anyway, missing data will be interpolated linearly.
+          for 2 variables. It is recommended that you use data with same time
+          periodicity. Anyway, missing data will be interpolated linearly.
         </p>
         <button type="button" class="btn btn-primary" @click="getCorr">
           Calculate
